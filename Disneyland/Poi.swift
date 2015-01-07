@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class Poi {
     var id:String
@@ -20,17 +21,21 @@ class Poi {
     }
 }
 
-class Attraction: Poi {
+class Restaurant: Poi {
+    var location: CLLocationCoordinate2D
+    
     var open: Int!
     var opening: NSDate!
     var closing: NSDate!
-    var waittime: Int!
+    
+    init(id: String, title: String, description: String, latitude: Double, longitude: Double) {
+        self.location = CLLocationCoordinate2DMake(latitude, longitude)
+        super.init(id: id, title: title, description: description)
+    }
 }
 
-class Restaurant: Poi {
-    var open: Int!
-    var opening: NSDate!
-    var closing: NSDate!
+class Attraction: Restaurant {
+    var waittime: Int!
 }
 
 class Show: Poi {
