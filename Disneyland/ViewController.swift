@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return favorites.count != 0 && section == 0 ? "Favoris": nil
+        return favorites.count != 0 && section == 0 ? "Favorites": nil
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
