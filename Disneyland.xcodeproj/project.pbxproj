@@ -14,6 +14,7 @@
 		E988AE4F1A5D74B200016A02 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E988AE4D1A5D74B200016A02 /* LaunchScreen.xib */; };
 		E988AE5B1A5D74B200016A02 /* DisneylandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E988AE5A1A5D74B200016A02 /* DisneylandTests.swift */; };
 		E988AE651A5D777A00016A02 /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E988AE641A5D777A00016A02 /* Poi.swift */; };
+		E988AE671A5D89F500016A02 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E988AE661A5D89F500016A02 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		E988AE591A5D74B200016A02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E988AE5A1A5D74B200016A02 /* DisneylandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneylandTests.swift; sourceTree = "<group>"; };
 		E988AE641A5D777A00016A02 /* Poi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
+		E988AE661A5D89F500016A02 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				E988AE441A5D74B200016A02 /* AppDelegate.swift */,
 				E988AE461A5D74B200016A02 /* ViewController.swift */,
+				E988AE661A5D89F500016A02 /* DataManager.swift */,
 				E988AE641A5D777A00016A02 /* Poi.swift */,
 				E988AE481A5D74B200016A02 /* Main.storyboard */,
 				E988AE4B1A5D74B200016A02 /* Images.xcassets */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E988AE651A5D777A00016A02 /* Poi.swift in Sources */,
+				E988AE671A5D89F500016A02 /* DataManager.swift in Sources */,
 				E988AE471A5D74B200016A02 /* ViewController.swift in Sources */,
 				E988AE451A5D74B200016A02 /* AppDelegate.swift in Sources */,
 			);
