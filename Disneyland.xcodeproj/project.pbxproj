@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E90B2EFD1A6028C600BD0AA1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B2EFC1A6028C600BD0AA1 /* SwiftyJSON.swift */; };
+		E91AAA701A6572B70054D52A /* WaitTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91AAA6F1A6572B70054D52A /* WaitTimeCell.swift */; };
 		E9843A101A5FFA4F008AE78F /* WaitTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9843A0F1A5FFA4F008AE78F /* WaitTimeCell.xib */; };
 		E988AE451A5D74B200016A02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E988AE441A5D74B200016A02 /* AppDelegate.swift */; };
 		E988AE471A5D74B200016A02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E988AE461A5D74B200016A02 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		E90B2EFC1A6028C600BD0AA1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		E91AAA6F1A6572B70054D52A /* WaitTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitTimeCell.swift; sourceTree = "<group>"; };
 		E9843A0F1A5FFA4F008AE78F /* WaitTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitTimeCell.xib; sourceTree = "<group>"; };
 		E988AE3F1A5D74B200016A02 /* Disneyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Disneyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E988AE431A5D74B200016A02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				E988AE461A5D74B200016A02 /* ViewController.swift */,
 				E988AE661A5D89F500016A02 /* DataManager.swift */,
 				E988AE641A5D777A00016A02 /* Poi.swift */,
+				E91AAA6F1A6572B70054D52A /* WaitTimeCell.swift */,
 				E988AE481A5D74B200016A02 /* Main.storyboard */,
 				E9843A0F1A5FFA4F008AE78F /* WaitTimeCell.xib */,
 				E988AE4B1A5D74B200016A02 /* Images.xcassets */,
@@ -230,6 +233,7 @@
 				E988AE471A5D74B200016A02 /* ViewController.swift in Sources */,
 				E90B2EFD1A6028C600BD0AA1 /* SwiftyJSON.swift in Sources */,
 				E988AE451A5D74B200016A02 /* AppDelegate.swift in Sources */,
+				E91AAA701A6572B70054D52A /* WaitTimeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
