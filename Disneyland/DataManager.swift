@@ -11,8 +11,8 @@ import Foundation
 let availableCountryCodes = ["en", "fr"]
 let countryCode = "en"
 
-let attractionsURL = "http://api.disneyfan.fr/attractions/\(countryCode)"
-let restaurantsURL = "http://api.disneyfan.fr/restaurants/\(countryCode)"
+let attractionsURL = "http://api.disneyfan.fr/attractions/extended/\(countryCode)"
+let restaurantsURL = "http://api.disneyfan.fr/restaurants/extended/\(countryCode)"
 let waitTimesURL = "http://api.disneyfan.fr/waittimes"
 let ouvertureURL = "http://api.disneyfan.fr/ouverture"
 
@@ -36,34 +36,12 @@ class DataManager {
         }
     }
     
-    class func getAttractionsWithSuccess(success: ((attractions: NSData!) -> Void)) {
-        loadDataFromURL(NSURL(string: attractionsURL)!, completion:{(data, error) -> Void in
-            if let urlData = data {
-                success(attractions: urlData)
-            }
-        })
-    }
-    
-    class func getRestaurantsWithSuccess(success: ((restaurants: NSData!) -> Void)) {
-        loadDataFromURL(NSURL(string: restaurantsURL)!, completion:{(data, error) -> Void in
-            if let urlData = data {
-                success(restaurants: urlData)
-            }
-        })
-    }
-    
-    class func getWaitTimesWithSuccess(success: ((data: NSData!) -> Void)) {
-        loadDataFromURL(NSURL(string: waitTimesURL)!, completion:{(data, error) -> Void in
-            if let urlData = data {
-                success(data: urlData)
-            }
-        })
-    }
-    
-    class func getOuvertureWithSuccess(success: ((data: NSData!) -> Void)) {
-        loadDataFromURL(NSURL(string: ouvertureURL)!, completion:{(data, error) -> Void in
-            if let urlData = data {
-                success(data: urlData)
+    class func getUrlWithSuccess(#url: String, success: (data: NSData?, error: NSError?) -> Void) {
+        loadDataFromURL(NSURL(string: url)!, completion:{(data, error) -> Void in
+            if let responseError = error {
+                success(data: nil, error: responseError)
+            } else if let urlData = data {
+                success(data: urlData, error: nil)
             }
         })
     }
