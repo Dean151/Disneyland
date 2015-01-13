@@ -19,10 +19,27 @@ class Poi {
         self.title = title
         self.description = description
     }
+    
+    func searchInString(#string: String, search: String) -> Bool {
+        if string.lowercaseString.rangeOfString(search.lowercaseString) != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func searchInTitle(search: String) -> Bool {
+        return searchInString(string: self.title, search: search)
+    }
+    
+    func searchInDescription(search: String) -> Bool {
+        return searchInString(string: self.description, search: search)
+    }
 }
 
 class Restaurant: Poi {
     var location: CLLocationCoordinate2D
+    var distance: Double = 0
     
     var open: Int!
     var opening: NSDate!
@@ -31,6 +48,16 @@ class Restaurant: Poi {
     init(id: String, title: String, description: String, latitude: Double, longitude: Double) {
         self.location = CLLocationCoordinate2DMake(latitude, longitude)
         super.init(id: id, title: title, description: description)
+    }
+    
+    func update(#open: Int, opening: String, closing: String) {
+        self.open = open
+        self.opening = NSDate(dateString: opening)
+        self.closing = NSDate(dateString: closing)
+    }
+    
+    var status: Int {
+        return 0
     }
 }
 
@@ -41,4 +68,15 @@ class Attraction: Restaurant {
 class Show: Poi {
     var time: NSDate!
     var language: String!
+}
+
+extension NSDate {
+    convenience
+    init(dateString:String) {
+        let dateStringFormatter = NSDateFormatter()
+        dateStringFormatter.dateFormat = "yyyyMMddHHmm"
+        dateStringFormatter.locale = NSLocale(localeIdentifier: "fr")
+        let d:NSDate = dateStringFormatter.dateFromString(dateString)!
+        self.init(timeInterval: 0, sinceDate: d)
+    }
 }
