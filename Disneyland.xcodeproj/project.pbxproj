@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E90B2EFD1A6028C600BD0AA1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B2EFC1A6028C600BD0AA1 /* SwiftyJSON.swift */; };
+		E9843A101A5FFA4F008AE78F /* WaitTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9843A0F1A5FFA4F008AE78F /* WaitTimeCell.xib */; };
 		E988AE451A5D74B200016A02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E988AE441A5D74B200016A02 /* AppDelegate.swift */; };
 		E988AE471A5D74B200016A02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E988AE461A5D74B200016A02 /* ViewController.swift */; };
 		E988AE4A1A5D74B200016A02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E988AE481A5D74B200016A02 /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E90B2EFC1A6028C600BD0AA1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		E9843A0F1A5FFA4F008AE78F /* WaitTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitTimeCell.xib; sourceTree = "<group>"; };
 		E988AE3F1A5D74B200016A02 /* Disneyland.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Disneyland.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E988AE431A5D74B200016A02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E988AE441A5D74B200016A02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,8 +90,10 @@
 				E988AE661A5D89F500016A02 /* DataManager.swift */,
 				E988AE641A5D777A00016A02 /* Poi.swift */,
 				E988AE481A5D74B200016A02 /* Main.storyboard */,
+				E9843A0F1A5FFA4F008AE78F /* WaitTimeCell.xib */,
 				E988AE4B1A5D74B200016A02 /* Images.xcassets */,
 				E988AE4D1A5D74B200016A02 /* LaunchScreen.xib */,
+				E90B2EFC1A6028C600BD0AA1 /* SwiftyJSON.swift */,
 				E988AE421A5D74B200016A02 /* Supporting Files */,
 			);
 			path = Disneyland;
@@ -199,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E988AE4A1A5D74B200016A02 /* Main.storyboard in Resources */,
+				E9843A101A5FFA4F008AE78F /* WaitTimeCell.xib in Resources */,
 				E988AE4F1A5D74B200016A02 /* LaunchScreen.xib in Resources */,
 				E988AE4C1A5D74B200016A02 /* Images.xcassets in Resources */,
 			);
@@ -221,6 +228,7 @@
 				E988AE651A5D777A00016A02 /* Poi.swift in Sources */,
 				E988AE671A5D89F500016A02 /* DataManager.swift in Sources */,
 				E988AE471A5D74B200016A02 /* ViewController.swift in Sources */,
+				E90B2EFD1A6028C600BD0AA1 /* SwiftyJSON.swift in Sources */,
 				E988AE451A5D74B200016A02 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +423,7 @@
 				E988AE601A5D74B200016A02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E988AE611A5D74B200016A02 /* Build configuration list for PBXNativeTarget "DisneylandTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +432,7 @@
 				E988AE631A5D74B200016A02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
