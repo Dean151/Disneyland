@@ -25,8 +25,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        // Nib for CustomCell
+        var nib = UINib(nibName: "WaitTimeCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "waitTimeCell")
         
         // Refresh handler on top
         self.refreshControl = UIRefreshControl()
@@ -83,6 +87,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     }
                 }
                 self.sort(beginEndUpdate: false)
+                println("Success to get attractions")
                 self.getWaitTimes() {
                     completion()
                 }
@@ -95,7 +100,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func getWaitTimes(completion: () -> Void) {
         DataManager.getUrlWithSuccess(url: waitTimesURL, success: { (waitTimes, error) -> Void in
             if let e = error {
-                println("Error to get attractions");
+                println("Error to get waittimes");
             } else if let waitTimesList = waitTimes {
                 let json = JSON(data: waitTimesList)
                 
@@ -116,6 +121,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     }
                 }
                 self.sort(beginEndUpdate: true)
+                println("Success to get waittimes")
                 completion()
             } else {
                 println("Unknown error")
@@ -161,18 +167,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func sortByTimeAndStatus(i1: String, i2: String) -> Bool {
         if let s1 = self.pois[i1] as? Attraction {
             if let s2 = self.pois[i2] as? Attraction {
-                if s1.status == 1 && s2.status == 1 {
+                if s1.status == 3 && s2.status == 3 {
                     if s1.waittime == s2.waittime {
                         return sortByName(i1, i2: i2)
                     } else {
                         return s1.waittime < s2.waittime
                     }
                 } else {
-                    if s1.status == 1 {
-                        return true
-                    } else if s2.status == 1 {
-                        return false
-                    } else if s1.status == s2.status {
+                    if s1.status == s2.status {
                         return sortByName(i1, i2: i2)
                     } else {
                         return s1.status > s2.status
@@ -225,6 +227,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return favorites.count != 0 && section == 0 ? favorites.count: indexes.count
     }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 74
+    }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -236,11 +242,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             identifier = indexes[indexPath.row]
         }
         
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+        var cell:WaitTimeCell = self.tableView.dequeueReusableCellWithIdentifier("waitTimeCell") as WaitTimeCell
         
         if let poi = pois[identifier] as? Attraction {
-            cell.textLabel?.text = poi.title
+            cell.load(poi)
         }
+        
         return cell
     }
 }
