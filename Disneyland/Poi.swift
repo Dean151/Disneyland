@@ -41,9 +41,9 @@ class Restaurant: Poi {
     var location: CLLocationCoordinate2D
     var distance: Double = 0
     
-    var open: Int!
-    var opening: NSDate!
-    var closing: NSDate!
+    var open: Int = 0
+    var opening = NSDate()
+    var closing = NSDate()
     
     init(id: String, title: String, description: String, latitude: Double, longitude: Double) {
         self.location = CLLocationCoordinate2DMake(latitude, longitude)
@@ -56,13 +56,69 @@ class Restaurant: Poi {
         self.closing = NSDate(dateString: closing)
     }
     
-    var status: Int {
-        return 0
+    func formatDate(date: NSDate) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .NoStyle
+        formatter.timeStyle = .ShortStyle
+        return formatter.stringFromDate(date)
+    }
+    
+    var openingTimeString: String {
+        return self.formatDate(opening)
+    }
+    
+    var closingTimeString: String {
+        return self.formatDate(closing)
     }
 }
 
 class Attraction: Restaurant {
     var waittime: Int!
+    
+    var status: Int {
+        // -1 : closed today
+        // 0 : closed
+        // 1 : opening at
+        // 2 : interrupted
+        // 3 : open
+        
+        switch open {
+        case 0:
+            if opening.compare(closing) == NSComparisonResult.OrderedSame {
+                return -1 // closed today
+            } else {
+                return 0 // closed
+            }
+        case 1:
+            if waittime == 0 {
+                return 2 // interrupted
+            }
+            else {
+                return 3 // open
+            }
+        case 2:
+            return 2 // interrupted
+        default:
+            return 0 // closed
+        }
+    }
+    
+    var statusString: String {
+        switch status {
+        case -1:
+            return "Closed today"
+        case 0:
+            return "Closed"
+        case 1:
+            return "Opening at \(openingTimeString)"
+        case 2:
+            return "Interrupted"
+        case 3:
+            return "Open"
+        default:
+            return ""
+        }
+    }
 }
 
 class Show: Poi {
