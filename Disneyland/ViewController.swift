@@ -259,5 +259,59 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = identifier
         return cell
     }
+    
+    func tableView(tableView: UITableView!, editActionsForRowAtIndexPath indexPath: NSIndexPath!) -> [AnyObject]! {
+        if favorites.count != 0 && indexPath.section == 0 {
+            var deleteAction = UITableViewRowAction(style: .Default, title: "Delete") { (action, indexPath) -> Void in
+                tableView.editing = false
+                
+                // Removing a favorite
+                self.tableView.beginUpdates()
+                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+                self.favorites.removeAtIndex(indexPath.row)
+                if self.favorites.isEmpty {
+                    self.tableView.deleteSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+                }
+                self.tableView.endUpdates()
+                
+            }
+            return [deleteAction]
+        } else {
+            var addFavAction = UITableViewRowAction(style: .Default, title: "Favorite") { (action, indexPath) -> Void in
+                tableView.editing = false
+                
+                // Adding a favorite
+                self.tableView.beginUpdates()
+                self.favorites.append(self.indexes[indexPath.row])
+                
+                if self.favorites.count == 1 {
+                    self.tableView.insertSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+                }
+                
+                self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.favorites.count-1, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Right)
+                self.tableView.endUpdates()
+            }
+            addFavAction.backgroundColor = UIColor(hexadecimal: "#FFCC00")
+            return [addFavAction]
+        }
+        
+    }
+    
+    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // Getting the corresponding identifier
+        var identifier: String
+        if favorites.count != 0 && indexPath.section == 0 {
+            identifier = favorites[indexPath.row]
+        } else {
+            identifier = indexes[indexPath.row]
+        }
+        
+        if let poi = pois[identifier] {
+            println(identifier)
+        }
+    }
 }
 
