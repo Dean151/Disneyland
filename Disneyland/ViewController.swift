@@ -70,7 +70,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.refreshControl.endRefreshing()
             }
         }
-        
     }
     
     func autoRefresh() {

@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSm-a2-FnT">
-                        <rect key="frame" x="76" y="7" width="236" height="21"/>
+                        <rect key="frame" x="101" y="7" width="211" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="7bX-Pq-TcB"/>
                         </constraints>
@@ -23,11 +23,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDO-VJ-7CF">
-                        <rect key="frame" x="76" y="26" width="170" height="21"/>
+                        <rect key="frame" x="101" y="26" width="145" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="4a8-th-ood"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -58,12 +58,21 @@
                             <constraint firstAttribute="height" constant="60" id="GAZ-16-g0k"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gtB-zP-LEg">
+                        <rect key="frame" x="75" y="11" width="18" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="c6J-EP-Q8X"/>
+                            <constraint firstAttribute="width" constant="18" id="ef9-Xv-eoG"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ifO-mR-UUQ" firstAttribute="leading" secondItem="H2I-u1-TBF" secondAttribute="leadingMargin" constant="-1" id="0N2-Fh-qEF"/>
-                    <constraint firstItem="xDO-VJ-7CF" firstAttribute="leading" secondItem="ifO-mR-UUQ" secondAttribute="trailing" constant="9" id="1pn-2d-6Gl"/>
+                    <constraint firstItem="xDO-VJ-7CF" firstAttribute="leading" secondItem="ifO-mR-UUQ" secondAttribute="trailing" constant="34" id="1pn-2d-6Gl"/>
                     <constraint firstItem="xDO-VJ-7CF" firstAttribute="top" secondItem="H2I-u1-TBF" secondAttribute="topMargin" constant="18" id="3wl-Ac-bs2"/>
                     <constraint firstItem="ifO-mR-UUQ" firstAttribute="top" secondItem="H2I-u1-TBF" secondAttribute="topMargin" constant="-1" id="7ci-sZ-fq9"/>
+                    <constraint firstItem="gtB-zP-LEg" firstAttribute="top" secondItem="H2I-u1-TBF" secondAttribute="topMargin" constant="3" id="8Ln-9z-xg0"/>
+                    <constraint firstItem="gtB-zP-LEg" firstAttribute="leading" secondItem="ifO-mR-UUQ" secondAttribute="trailing" constant="8" id="GlY-q4-xsQ"/>
                     <constraint firstItem="Sco-O1-ngy" firstAttribute="trailing" secondItem="H2I-u1-TBF" secondAttribute="trailingMargin" id="GqL-iF-Wxd"/>
                     <constraint firstItem="HSm-a2-FnT" firstAttribute="top" secondItem="H2I-u1-TBF" secondAttribute="topMargin" constant="-1" id="PqS-di-D3N"/>
                     <constraint firstAttribute="bottomMargin" secondItem="2OU-GE-5Mb" secondAttribute="bottom" constant="4" id="WN2-GH-DjG"/>
@@ -72,11 +81,12 @@
                     <constraint firstAttribute="trailingMargin" secondItem="xDO-VJ-7CF" secondAttribute="trailing" constant="66" id="ivj-g2-GPZ"/>
                     <constraint firstItem="Sco-O1-ngy" firstAttribute="bottom" secondItem="H2I-u1-TBF" secondAttribute="bottomMargin" id="sJJ-ZU-OVl"/>
                     <constraint firstItem="HSm-a2-FnT" firstAttribute="trailing" secondItem="H2I-u1-TBF" secondAttribute="trailingMargin" id="utX-L9-tpZ"/>
-                    <constraint firstItem="HSm-a2-FnT" firstAttribute="leading" secondItem="ifO-mR-UUQ" secondAttribute="trailing" constant="9" id="z08-DR-4sw"/>
+                    <constraint firstItem="HSm-a2-FnT" firstAttribute="leading" secondItem="ifO-mR-UUQ" secondAttribute="trailing" constant="34" id="z08-DR-4sw"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="hours" destination="xDO-VJ-7CF" id="LxE-kW-QJ1"/>
+                <outlet property="parc" destination="gtB-zP-LEg" id="XFH-FB-el7"/>
                 <outlet property="status" destination="2OU-GE-5Mb" id="gLt-ax-j7H"/>
                 <outlet property="title" destination="HSm-a2-FnT" id="RiC-TA-cz5"/>
                 <outlet property="waittime" destination="Sco-O1-ngy" id="LYA-bq-2nO"/>
