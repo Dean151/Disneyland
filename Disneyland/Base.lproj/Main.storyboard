@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Disneyland Paris-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Disneyland" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,7 +38,7 @@
                             <constraint firstItem="qVN-qD-V0T" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="sWn-Jm-BVY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="R0q-tP-enM"/>
+                    <navigationItem key="navigationItem" title="Disneyland Paris" id="R0q-tP-enM"/>
                     <connections>
                         <outlet property="tableView" destination="qVN-qD-V0T" id="fNa-kU-rSP"/>
                     </connections>
