@@ -20,6 +20,17 @@ class Poi {
         self.description = description
     }
     
+    var parc: String {
+        switch (id[1]) {
+            case "1":
+                return "dlp"
+            case "2":
+                return "wds"
+            default:
+                return ""
+        }
+    }
+    
     func searchInString(#string: String, search: String) -> Bool {
         if string.lowercaseString.rangeOfString(search.lowercaseString) != nil {
             return true
@@ -137,5 +148,11 @@ extension NSDate {
         dateStringFormatter.locale = NSLocale(localeIdentifier: "fr")
         let d:NSDate = dateStringFormatter.dateFromString(dateString)!
         self.init(timeInterval: 0, sinceDate: d)
+    }
+}
+
+extension String {
+    subscript (i: Int) -> Character {
+        return self[advance(self.startIndex, i)]
     }
 }
