@@ -14,6 +14,10 @@ class WaitTimeCell : UITableViewCell {
     @IBOutlet weak var waittime: UILabel!
     @IBOutlet weak var status: UILabel!
     
+    let redColor = UIColor(hexadecimal: "#CC0000")
+    let orangeColor = UIColor(hexadecimal: "#FF6800")
+    let greenColor = UIColor(hexadecimal: "#009933")
+    
     // Method for loading an attraction
     func load(poi: Attraction) {
         title.text = poi.title
@@ -29,13 +33,13 @@ class WaitTimeCell : UITableViewCell {
             
             // Color code
             if waitTime >= 60 {
-                self.waittime.textColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1) // Red color
+                self.waittime.textColor = redColor
             }
             else if waitTime >= 30 {
-                self.waittime.textColor = UIColor(red: 1, green: 0.4, blue: 0, alpha: 1) // Orange color
+                self.waittime.textColor = orangeColor
             }
             else {
-                self.waittime.textColor = UIColor(red: 0, green: 0.6, blue: 0.2, alpha: 1) // Green color
+                self.waittime.textColor = greenColor
             }
             
             status.text = ""
@@ -57,6 +61,15 @@ class WaitTimeCell : UITableViewCell {
         }
         
         status.text = poi.statusString
+        
+        if poi.status <= 0 {
+            status.textColor = redColor
+        } else if poi.status == 3 {
+            status.textColor = greenColor
+        } else {
+            status.textColor = orangeColor
+        }
+        
         waittime.text = ""
     }
 }
