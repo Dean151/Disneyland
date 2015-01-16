@@ -70,10 +70,6 @@ class Restaurant: Poi {
     var closingTimeString: String {
         return self.formatDate(closing)
     }
-}
-
-class Attraction: Restaurant {
-    var waittime: Int!
     
     var status: Int {
         // -1 : closed today
@@ -90,12 +86,7 @@ class Attraction: Restaurant {
                 return 0 // closed
             }
         case 1:
-            if waittime == 0 {
-                return 2 // interrupted
-            }
-            else {
-                return 3 // open
-            }
+            return 3 // open
         case 2:
             return 2 // interrupted
         default:
@@ -117,6 +108,18 @@ class Attraction: Restaurant {
             return "Open"
         default:
             return ""
+        }
+    }
+}
+
+class Attraction: Restaurant {
+    var waittime: Int!
+    
+    override var status: Int {
+        if waittime == 0 && super.status == 3 {
+            return 2 // interrupted
+        } else {
+            return super.status
         }
     }
 }
