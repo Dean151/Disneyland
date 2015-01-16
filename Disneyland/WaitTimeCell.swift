@@ -14,7 +14,8 @@ class WaitTimeCell : UITableViewCell {
     @IBOutlet weak var waittime: UILabel!
     @IBOutlet weak var status: UILabel!
     
-    func load(poi:Attraction) {
+    // Method for loading an attraction
+    func load(poi: Attraction) {
         title.text = poi.title
         
         if poi.status >= 0 {
@@ -43,5 +44,19 @@ class WaitTimeCell : UITableViewCell {
             status.text = poi.statusString
             waittime.text = ""
         }
+    }
+    
+    // there is also a method for restaurants
+    func load(poi: Restaurant) {
+        title.text = poi.title
+        
+        if poi.status >= 0 {
+            hours.text = "\(poi.openingTimeString) → \(poi.closingTimeString)"
+        } else {
+            hours.text = ""
+        }
+        
+        status.text = poi.statusString
+        waittime.text = ""
     }
 }

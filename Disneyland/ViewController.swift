@@ -186,8 +186,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func sortByDistance(i1: String, i2: String) -> Bool {
-        if let s1 = self.pois[i1] as? Attraction {
-            if let s2 = self.pois[i2] as? Attraction {
+        if let s1 = self.pois[i1] as? Restaurant {
+            if let s2 = self.pois[i2] as? Restaurant {
                 if s1.distance < 0 && s2.distance < 0 {
                     return sortByName(i1, i2: i2)
                 } else {
@@ -233,7 +233,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         // Getting the corresponding identifier
         var identifier: String
         if favorites.count != 0 && indexPath.section == 0 {
@@ -242,12 +241,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             identifier = indexes[indexPath.row]
         }
         
-        var cell:WaitTimeCell = self.tableView.dequeueReusableCellWithIdentifier("waitTimeCell") as WaitTimeCell
-        
-        if let poi = pois[identifier] as? Attraction {
-            cell.load(poi)
+        if let poi = pois[identifier] as? Restaurant {
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("waitTimeCell") as WaitTimeCell
+            
+            // if it is an attraction
+            if let attraction = poi as? Attraction {
+                cell.load(attraction)
+            } else {
+                cell.load(poi)
+            }
+            
+            return cell
         }
         
+        // Unknown cell, yark!
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+        cell.textLabel?.text = identifier
         return cell
     }
 }
