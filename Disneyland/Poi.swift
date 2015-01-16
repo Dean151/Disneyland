@@ -113,10 +113,10 @@ class Restaurant: Poi {
 }
 
 class Attraction: Restaurant {
-    var waittime: Int!
+    var waittime: Int = 0
     
     override var status: Int {
-        if waittime == 0 && super.status == 3 {
+        if waittime == 0 && open == 1 {
             return 2 // interrupted
         } else {
             return super.status
