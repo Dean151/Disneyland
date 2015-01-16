@@ -1,6 +1,6 @@
 # Xcode
 #
-Disneyland.xcodeproj/
+Disneyland.xcodeproj/*
 build/
 *.pbxuser
 !default.pbxuser
