@@ -1,6 +1,6 @@
 # Xcode
 #
-*.xcodeproj/*
+*.pbxproj
 build/
 *.pbxuser
 !default.pbxuser
