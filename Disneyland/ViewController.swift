@@ -40,6 +40,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // Manualy load poi
         self.autoRefresh()
+        
+        // Load favorites
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let favs = defaults.arrayForKey("favorites")
+        {
+            for fav in favs {
+                if let f = fav as? String {
+                    favorites.append(f)
+                }
+            }
+        }
+    }
+    
+    func saveFavorites() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(favorites, forKey: "favorites")
     }
     
     func manualRefresh(sender: AnyObject?) {
@@ -67,7 +83,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func getPoi(completion: () -> Void) {
         DataManager.getUrlWithSuccess(url: attractionsURL, success: { (attractions, error) -> Void in
             if let e = error {
-                println("Error to get attractions");
+                self.loadingError()
             } else if let attractionsList = attractions {
                 let json = JSON(data: attractionsList)
                 
@@ -92,7 +108,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     completion()
                 }
             } else {
-                println("Unknown error")
+                self.loadingError()
             }
         })
     }
@@ -100,7 +116,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func getWaitTimes(completion: () -> Void) {
         DataManager.getUrlWithSuccess(url: waitTimesURL, success: { (waitTimes, error) -> Void in
             if let e = error {
-                println("Error to get waittimes");
+                self.loadingError()
             } else if let waitTimesList = waitTimes {
                 let json = JSON(data: waitTimesList)
                 
@@ -124,11 +140,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 println("Success to get waittimes")
                 completion()
             } else {
-                println("Unknown error")
+                self.loadingError()
             }
         })
     }
-
+    
+    func loadingError() {
+        self.refreshControl.endRefreshing()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -254,9 +273,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return cell
         }
         
-        // Unknown cell, yark!
+        // Unknown cell, like unloaded favorites
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
-        cell.textLabel?.text = identifier
         return cell
     }
     
@@ -268,7 +286,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 // Removing a favorite
                 self.tableView.beginUpdates()
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+                
                 self.favorites.removeAtIndex(indexPath.row)
+                self.saveFavorites()
+                
                 if self.favorites.isEmpty {
                     self.tableView.deleteSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
                 }
@@ -279,17 +300,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         } else {
             var addFavAction = UITableViewRowAction(style: .Default, title: "Favorite") { (action, indexPath) -> Void in
                 tableView.editing = false
+                let identifier = self.indexes[indexPath.row]
                 
-                // Adding a favorite
-                self.tableView.beginUpdates()
-                self.favorites.append(self.indexes[indexPath.row])
-                
-                if self.favorites.count == 1 {
-                    self.tableView.insertSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+                if find(self.favorites, identifier) == nil {
+                    // Adding a favorite
+                    self.tableView.beginUpdates()
+                    
+                    self.favorites.append(identifier)
+                    self.saveFavorites()
+                    
+                    if self.favorites.count == 1 {
+                        self.tableView.insertSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+                    }
+                    
+                    self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.favorites.count-1, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Right)
+                    
+                    self.sort(beginEndUpdate: false)
+                    self.tableView.endUpdates()
                 }
-                
-                self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.favorites.count-1, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Right)
-                self.tableView.endUpdates()
             }
             addFavAction.backgroundColor = UIColor(hexadecimal: "#FFCC00")
             return [addFavAction]
@@ -298,20 +326,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // Getting the corresponding identifier
-        var identifier: String
-        if favorites.count != 0 && indexPath.section == 0 {
-            identifier = favorites[indexPath.row]
-        } else {
-            identifier = indexes[indexPath.row]
-        }
-        
-        if let poi = pois[identifier] {
-            println(identifier)
-        }
     }
 }
 
