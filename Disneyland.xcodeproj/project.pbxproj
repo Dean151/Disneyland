@@ -89,15 +89,15 @@
 		E988AE411A5D74B200016A02 /* Disneyland */ = {
 			isa = PBXGroup;
 			children = (
-				E988AE441A5D74B200016A02 /* AppDelegate.swift */,
-				E988AE461A5D74B200016A02 /* ViewController.swift */,
 				E988AE661A5D89F500016A02 /* DataManager.swift */,
 				E988AE641A5D777A00016A02 /* Poi.swift */,
+				E988AE461A5D74B200016A02 /* ViewController.swift */,
 				E91AAA6F1A6572B70054D52A /* WaitTimeCell.swift */,
 				E988AE481A5D74B200016A02 /* Main.storyboard */,
 				E9843A0F1A5FFA4F008AE78F /* WaitTimeCell.xib */,
 				E988AE4B1A5D74B200016A02 /* Images.xcassets */,
 				E988AE4D1A5D74B200016A02 /* LaunchScreen.xib */,
+				E988AE441A5D74B200016A02 /* AppDelegate.swift */,
 				E94214D91A6957CB00FF6D91 /* HexaColor.swift */,
 				E90B2EFC1A6028C600BD0AA1 /* SwiftyJSON.swift */,
 				E988AE421A5D74B200016A02 /* Supporting Files */,
