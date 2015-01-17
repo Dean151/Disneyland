@@ -135,11 +135,6 @@ class Attraction: Restaurant {
     }
 }
 
-class Show: Poi {
-    var time: NSDate!
-    var language: String!
-}
-
 extension NSDate {
     convenience
     init(dateString:String) {
