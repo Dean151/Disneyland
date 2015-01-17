@@ -144,6 +144,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func loadingError() {
         self.refreshControl.endRefreshing()
+        let alertController = UIAlertController(title: "Unable to refresh", message:
+            "Please check your connectivity and try again", preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 
     // FAVORITES
