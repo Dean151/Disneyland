@@ -20,7 +20,7 @@ class WaitTimeCell : UITableViewCell {
     let orangeColor = UIColor(hexadecimal: "#FF9500")
     let greenColor = UIColor(hexadecimal: "#4CD964")
     
-    let blueColor = UIColor(hexadecimal: "#1D77EF")
+    let blueColor = UIColor(hexadecimal: "#329EF9")
     
     func load(#identifier: String, title: String, parc: String) {
         // Poi title

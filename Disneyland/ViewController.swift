@@ -29,6 +29,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var pois = Dictionary<String, Poi>()
     
+    // To see attractions OR restaurants
+    var indexes: [String] {
+        get {
+            return attractions;
+        }
+        set(value) {
+            attractions = value
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,16 +89,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         println("autorefreshing");
         self.refreshControl.beginRefreshing()
         self.manualRefresh(self)
-    }
-    
-    // To see attractions OR restaurants
-    var indexes: [String] {
-        get {
-            return attractions;
-        }
-        set(value) {
-            attractions = value
-        }
     }
     
     func getPois(completion: () -> Void) {
