@@ -12,8 +12,9 @@ enum typeOfSort: Int {
     case byName=0, byWaitTimes, byDistance
 }
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchControllerDelegate {
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
     var refreshControl:UIRefreshControl!
     
     var sortType: typeOfSort = .byWaitTimes
@@ -21,7 +22,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var indexes = [String]()
     var favorites = [String]()
+    var search = [String]()
     var pois = Dictionary<String, Poi>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,11 +54,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             }
         }
-    }
-    
-    func saveFavorites() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(favorites, forKey: "favorites")
     }
     
     func manualRefresh(sender: AnyObject?) {
@@ -148,9 +146,46 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.refreshControl.endRefreshing()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // FAVORITES
+    
+    func saveFavorites() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(favorites, forKey: "favorites")
+    }
+    
+    func addFavorite(indexPath: NSIndexPath) {
+        let identifier = self.indexes[indexPath.row]
+        
+        if find(self.favorites, identifier) == nil {
+            self.tableView.beginUpdates()
+            
+            self.favorites.append(identifier)
+            self.saveFavorites()
+            
+            if self.favorites.count == 1 {
+                self.tableView.insertSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+            }
+            
+            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.favorites.count-1, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Right)
+            
+            // TODO replace sort by finding in which row we should insert the cell
+            self.sort(beginEndUpdate: false)
+            self.tableView.endUpdates()
+        }
+    }
+    
+    func removeFavorite(indexPath: NSIndexPath) {
+        // Removing a favorite
+        self.tableView.beginUpdates()
+        self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+        
+        self.favorites.removeAtIndex(indexPath.row)
+        self.saveFavorites()
+        
+        if self.favorites.isEmpty {
+            self.tableView.deleteSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
+        }
+        self.tableView.endUpdates()
     }
     
     // SORT FUNCTIONS
@@ -231,19 +266,46 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return false
     }
     
+    // SEARCH FUNCTIONS
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        search.removeAll(keepCapacity: false)
+        self.searchText = searchText
+        if !searchText.isEmpty {
+            for (identifier, poi) in pois {
+                // We look for matches in name AND descriptions (allow keywords like 'mine' for Big Thunder Mountain)
+                if poi.searchInTitle(searchText) || poi.searchInDescription(searchText) {
+                    search.append(identifier)
+                }
+            }
+            search.sort(sortBySearchText)
+        }
+    }
+    
     // TABLE VIEW FUNCTIONS
     
     // Get 2 sections if there is favorite, 1 otherwise
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return favorites.count != 0 ? 2: 1
+        if tableView == searchDisplayController!.searchResultsTableView {
+            return 1
+        } else {
+            return favorites.count != 0 ? 2: 1
+        }
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return favorites.count != 0 && section == 0 ? "Favorites": nil
+        if tableView == searchDisplayController!.searchResultsTableView {
+            return nil
+        } else {
+            return favorites.count != 0 && section == 0 ? "Favorites": nil
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favorites.count != 0 && section == 0 ? favorites.count: indexes.count
+        if tableView == searchDisplayController!.searchResultsTableView {
+            return search.count
+        } else {
+            return favorites.count != 0 && section == 0 ? favorites.count: indexes.count
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -253,10 +315,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Getting the corresponding identifier
         var identifier: String
-        if favorites.count != 0 && indexPath.section == 0 {
-            identifier = favorites[indexPath.row]
+        if tableView == searchDisplayController!.searchResultsTableView {
+            identifier = search[indexPath.row]
         } else {
-            identifier = indexes[indexPath.row]
+            if favorites.count != 0 && indexPath.section == 0 {
+                identifier = favorites[indexPath.row]
+            } else {
+                identifier = indexes[indexPath.row]
+            }
         }
         
         if let poi = pois[identifier] as? Restaurant {
@@ -278,45 +344,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView!, editActionsForRowAtIndexPath indexPath: NSIndexPath!) -> [AnyObject]! {
-        if favorites.count != 0 && indexPath.section == 0 {
+        if favorites.count != 0 && indexPath.section == 0 && tableView != searchDisplayController!.searchResultsTableView  {
             var deleteAction = UITableViewRowAction(style: .Default, title: "Delete") { (action, indexPath) -> Void in
                 tableView.editing = false
                 
                 // Removing a favorite
-                self.tableView.beginUpdates()
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
-                
-                self.favorites.removeAtIndex(indexPath.row)
-                self.saveFavorites()
-                
-                if self.favorites.isEmpty {
-                    self.tableView.deleteSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
-                }
-                self.tableView.endUpdates()
-                
+                self.removeFavorite(indexPath)
             }
             return [deleteAction]
         } else {
             var addFavAction = UITableViewRowAction(style: .Default, title: "Favorite") { (action, indexPath) -> Void in
                 tableView.editing = false
-                let identifier = self.indexes[indexPath.row]
                 
-                if find(self.favorites, identifier) == nil {
-                    // Adding a favorite
-                    self.tableView.beginUpdates()
-                    
-                    self.favorites.append(identifier)
-                    self.saveFavorites()
-                    
-                    if self.favorites.count == 1 {
-                        self.tableView.insertSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
-                    }
-                    
-                    self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.favorites.count-1, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Right)
-                    
-                    self.sort(beginEndUpdate: false)
-                    self.tableView.endUpdates()
-                }
+                // Adding a favorite
+                self.addFavorite(indexPath)
             }
             addFavAction.backgroundColor = UIColor(hexadecimal: "#FFCC00")
             return [addFavAction]

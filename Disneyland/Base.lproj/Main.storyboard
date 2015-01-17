@@ -20,6 +20,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="qVN-qD-V0T">
                                 <rect key="frame" x="0.0" y="1" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search" id="COh-oq-RmX">
+                                    <rect key="frame" x="22" y="72" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="vXZ-lx-hvc" id="LGv-f8-Deb"/>
+                                    </connections>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="u2j-EI-PEK">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -40,10 +48,21 @@
                     </view>
                     <navigationItem key="navigationItem" title="Disneyland Paris" id="R0q-tP-enM"/>
                     <connections>
+                        <outlet property="searchBar" destination="COh-oq-RmX" id="WLR-n3-eoL"/>
+                        <outlet property="searchDisplayController" destination="MF9-aM-We2" id="yHb-mv-7NI"/>
                         <outlet property="tableView" destination="qVN-qD-V0T" id="fNa-kU-rSP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="MF9-aM-We2">
+                    <connections>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="qPm-pN-mrI"/>
+                        <outlet property="searchBar" destination="COh-oq-RmX" id="spf-dG-maK"/>
+                        <outlet property="searchContentsController" destination="vXZ-lx-hvc" id="jjj-d0-QPq"/>
+                        <outlet property="searchResultsDataSource" destination="vXZ-lx-hvc" id="e3Y-vb-3Zs"/>
+                        <outlet property="searchResultsDelegate" destination="vXZ-lx-hvc" id="ywm-M6-olB"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1117" y="354"/>
         </scene>
