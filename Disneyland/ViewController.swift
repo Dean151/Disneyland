@@ -12,30 +12,64 @@ enum typeOfSort: Int {
     case byName=0, byWaitTimes, byDistance
 }
 
+enum poiTypes: Int {
+    case attractions=0, restaurants
+}
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchControllerDelegate {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
     var refreshControl:UIRefreshControl!
     
     var sortType: typeOfSort = .byWaitTimes
-    var searchText: String = ""
+    var poiType: poiTypes = .attractions
     
     var attractions = [String]()
     var restaurants = [String]()
     
-    // FIXME favorite and search only in attraction/restaurant
-    var favorites = [String]()
+    var favoritesAttractions = [String]()
+    var favoritesRestaurants = [String]()
+    
     var search = [String]()
+    var searchText: String = ""
     
     var pois = Dictionary<String, Poi>()
     
     // To see attractions OR restaurants
     var indexes: [String] {
         get {
-            return attractions;
+            if poiType == .attractions {
+                return attractions;
+            } else if poiType == .restaurants {
+                return restaurants;
+            } else {
+                return [String]()
+            }
         }
         set(value) {
-            attractions = value
+            if poiType == .attractions {
+                attractions = value
+            } else if poiType == .restaurants {
+                restaurants = value
+            }
+        }
+    }
+    var favorites: [String] {
+        get {
+            if poiType == .attractions {
+                return favoritesAttractions;
+            } else if poiType == .restaurants {
+                return favoritesRestaurants;
+            } else {
+                return [String]()
+            }
+        }
+        set(value) {
+            if poiType == .attractions {
+                favoritesAttractions = value
+            } else if poiType == .restaurants {
+                favoritesRestaurants = value
+            }
         }
     }
     
@@ -59,15 +93,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.autoRefresh()
         
         // Load favorites
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let favs = defaults.arrayForKey("favorites")
-        {
-            for fav in favs {
-                if let f = fav as? String {
-                    favorites.append(f)
-                }
-            }
-        }
+        loadFavorites()
     }
     
     func manualRefresh(sender: AnyObject?) {
@@ -246,12 +272,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     // FAVORITES
-    
-    func saveFavorites() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(favorites, forKey: "favorites")
-    }
-    
     func addFavorite(indexPath: NSIndexPath) {
         let identifier = self.indexes[indexPath.row]
         
@@ -285,6 +305,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.tableView.deleteSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Fade)
         }
         self.tableView.endUpdates()
+    }
+    
+    func saveFavorites() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(favoritesAttractions, forKey: "favoritesAttractions")
+        defaults.setObject(favoritesRestaurants, forKey: "favoritesRestaurants")
+    }
+    
+    func loadFavorites() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let favs = defaults.arrayForKey("favoritesAttractions")
+        {
+            for fav in favs {
+                if let f = fav as? String {
+                    favoritesAttractions.append(f)
+                }
+            }
+        }
+        if let favs = defaults.arrayForKey("favoritesRestaurants")
+        {
+            for fav in favs {
+                if let f = fav as? String {
+                    favoritesRestaurants.append(f)
+                }
+            }
+        }
     }
     
     // SORT FUNCTIONS
@@ -373,7 +419,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             for (identifier, poi) in pois {
                 // We look for matches in name AND descriptions (allow keywords like 'mine' for Big Thunder Mountain)
                 if poi.searchInTitle(searchText) || poi.searchInDescription(searchText) {
-                    search.append(identifier)
+                    if find(indexes, identifier) != nil {
+                        search.append(identifier)
+                    }
                 }
             }
             search.sort(sortBySearchText)
