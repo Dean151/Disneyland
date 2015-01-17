@@ -87,6 +87,7 @@
             <connections>
                 <outlet property="hours" destination="xDO-VJ-7CF" id="LxE-kW-QJ1"/>
                 <outlet property="parc" destination="gtB-zP-LEg" id="XFH-FB-el7"/>
+                <outlet property="poiImage" destination="ifO-mR-UUQ" id="LWT-if-sCw"/>
                 <outlet property="status" destination="2OU-GE-5Mb" id="gLt-ax-j7H"/>
                 <outlet property="title" destination="HSm-a2-FnT" id="RiC-TA-cz5"/>
                 <outlet property="waittime" destination="Sco-O1-ngy" id="LYA-bq-2nO"/>
