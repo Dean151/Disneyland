@@ -15,14 +15,23 @@ class WaitTimeCell : UITableViewCell {
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var parc: UIImageView!
     
-    let redColor = UIColor(hexadecimal: "#CC0000")
-    let orangeColor = UIColor(hexadecimal: "#FF6800")
-    let greenColor = UIColor(hexadecimal: "#009933")
+    let redColor = UIColor(hexadecimal: "#FF3B30")
+    let orangeColor = UIColor(hexadecimal: "#FF9500")
+    let greenColor = UIColor(hexadecimal: "#4CD964")
+    
+    let blueColor = UIColor(hexadecimal: "#1D77EF")
+    
+    func load(#title: String, parc: String) {
+        self.title.text = title
+        self.parc.tintColor = blueColor
+        if let image = UIImage(named: parc) {
+            self.parc.image = image.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+        }
+    }
     
     // Method for loading an attraction
     func load(poi: Attraction) {
-        title.text = poi.title
-        parc.image = UIImage(named: poi.parc)
+        load(title: poi.title, parc: poi.parc)
         
         if poi.status >= 0 {
             hours.text = "\(poi.openingTimeString) → \(poi.closingTimeString)"
@@ -54,8 +63,7 @@ class WaitTimeCell : UITableViewCell {
     
     // there is also a method for restaurants
     func load(poi: Restaurant) {
-        title.text = poi.title
-        parc.image = UIImage(named: poi.parc)
+        load(title: poi.title, parc: poi.parc)
         
         if poi.status >= 0 {
             hours.text = "\(poi.openingTimeString) → \(poi.closingTimeString)"
