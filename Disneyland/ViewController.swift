@@ -20,9 +20,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var sortType: typeOfSort = .byWaitTimes
     var searchText: String = ""
     
-    var indexes = [String]()
+    var attractions = [String]()
+    var restaurants = [String]()
+    
+    // FIXME favorite and search only in attraction/restaurant
     var favorites = [String]()
     var search = [String]()
+    
     var pois = Dictionary<String, Poi>()
     
     override func viewDidLoad() {
@@ -59,12 +63,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func manualRefresh(sender: AnyObject?) {
         if pois.isEmpty {
             // In this case, we need to get poi first
-            self.getPoi() {
+            self.getPois() {
                 self.refreshControl.endRefreshing()
             }
         } else {
             // We just need to get variable data
-            self.getWaitTimes() {
+            self.getWaitTimesAndOpeningTimes() {
                 self.refreshControl.endRefreshing()
             }
         }
@@ -77,7 +81,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.manualRefresh(self)
     }
     
-    func getPoi(completion: () -> Void) {
+    // To see attractions OR restaurants
+    var indexes: [String] {
+        get {
+            return attractions;
+        }
+        set(value) {
+            attractions = value
+        }
+    }
+    
+    func getPois(completion: () -> Void) {
+        self.getAttractions() {
+            completion()
+        }
+        self.getRestaurants() {
+            completion()
+        }
+    }
+    
+    func getWaitTimesAndOpeningTimes(completion: () -> Void) {
+        self.getWaitTimes() {
+            completion()
+        }
+        self.getOpeningTimes() {
+            completion()
+        }
+    }
+    
+    func getAttractions(completion: () -> Void) {
         DataManager.getUrlWithSuccess(url: attractionsURL, success: { (attractions, error) -> Void in
             if let e = error {
                 self.loadingError()
@@ -92,7 +124,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                     if let lat = subJson["coord_y"].double {
                                         let att = Attraction(id: identifier, title: title, description: desc, latitude: lat, longitude: long)
                                         self.pois.updateValue(att, forKey: identifier)
-                                        self.indexes.append(identifier)
+                                        self.attractions.append(identifier)
                                     }
                                 }
                             }
@@ -102,6 +134,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.sort(beginEndUpdate: false)
                 println("Success to get attractions")
                 self.getWaitTimes() {
+                    completion()
+                }
+            } else {
+                self.loadingError()
+            }
+        })
+    }
+    
+    func getRestaurants(completion: () -> Void) {
+        DataManager.getUrlWithSuccess(url: restaurantsURL, success: { (attractions, error) -> Void in
+            if let e = error {
+                self.loadingError()
+            } else if let attractionsList = attractions {
+                let json = JSON(data: attractionsList)
+                
+                for (index: String, subJson: JSON) in json {
+                    if let identifier = subJson["idbio"].string {
+                        if let title = subJson["title"].string {
+                            if let desc = subJson["description"].string {
+                                if let long = subJson["coord_x"].double {
+                                    if let lat = subJson["coord_y"].double {
+                                        let att = Restaurant(id: identifier, title: title, description: desc, latitude: lat, longitude: long)
+                                        self.pois.updateValue(att, forKey: identifier)
+                                        self.restaurants.append(identifier)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                self.sort(beginEndUpdate: false)
+                println("Success to get restaurants")
+                self.getOpeningTimes() {
                     completion()
                 }
             } else {
@@ -135,6 +200,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
                 self.sort(beginEndUpdate: true)
                 println("Success to get waittimes")
+                completion()
+            } else {
+                self.loadingError()
+            }
+        })
+    }
+    
+    func getOpeningTimes(completion: () -> Void) {
+        DataManager.getUrlWithSuccess(url: ouvertureURL, success: { (waitTimes, error) -> Void in
+            if let e = error {
+                self.loadingError()
+            } else if let waitTimesList = waitTimes {
+                let json = JSON(data: waitTimesList)
+                
+                for (index: String, subJson: JSON) in json {
+                    if let identifier = subJson["idbio"].string {
+                        if let poi = self.pois[identifier] as? Restaurant {
+                            if let opening = subJson["opening"].string {
+                                if let closing = subJson["closing"].string {
+                                    if let open = subJson["open"].int {
+                                        poi.update(open: open, opening: opening, closing: closing)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                self.sort(beginEndUpdate: true)
+                println("Success to get opening times")
                 completion()
             } else {
                 self.loadingError()
@@ -364,7 +458,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 // Adding a favorite
                 self.addFavorite(indexPath)
             }
-            addFavAction.backgroundColor = UIColor(hexadecimal: "#FFCC00")
+            addFavAction.backgroundColor = UIColor(hexadecimal: "#FFCC00") // Favorite orange/yellow
             return [addFavAction]
         }
         
