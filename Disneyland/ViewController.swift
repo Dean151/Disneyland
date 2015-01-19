@@ -14,6 +14,14 @@ enum typeOfSort: Int {
 
 enum poiTypes: Int {
     case attractions=0, restaurants
+    
+    var isAttractions: Bool {
+        return self == .attractions
+    }
+    
+    var isRestaurants: Bool {
+        return self == .restaurants
+    }
 }
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchControllerDelegate {
@@ -38,36 +46,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // To see attractions OR restaurants
     var indexes: [String] {
         get {
-            if poiType == .attractions {
+            if poiType.isAttractions {
                 return attractions;
-            } else if poiType == .restaurants {
+            } else if poiType.isRestaurants {
                 return restaurants;
             } else {
                 return [String]()
             }
         }
         set(value) {
-            if poiType == .attractions {
+            if poiType.isAttractions {
                 attractions = value
-            } else if poiType == .restaurants {
+            } else if poiType.isRestaurants {
                 restaurants = value
             }
         }
     }
     var favorites: [String] {
         get {
-            if poiType == .attractions {
+            if poiType.isAttractions {
                 return favoritesAttractions;
-            } else if poiType == .restaurants {
+            } else if poiType.isRestaurants {
                 return favoritesRestaurants;
             } else {
                 return [String]()
             }
         }
         set(value) {
-            if poiType == .attractions {
+            if poiType.isAttractions {
                 favoritesAttractions = value
-            } else if poiType == .restaurants {
+            } else if poiType.isRestaurants {
                 favoritesRestaurants = value
             }
         }
