@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 enum typeOfSort: Int {
     case byName=0, byWaitTimes, byDistance
@@ -481,7 +482,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
         if let poi = pois[identifier] as? Restaurant {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("waitTimeCell") as WaitTimeCell
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("waitTimeCell") as! WaitTimeCell
             
             // if it is an attraction
             if let attraction = poi as? Attraction {
@@ -498,7 +499,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    func tableView(tableView: UITableView!, editActionsForRowAtIndexPath indexPath: NSIndexPath!) -> [AnyObject]! {
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
         if favorites.count != 0 && indexPath.section == 0 && tableView != searchDisplayController!.searchResultsTableView  {
             var deleteAction = UITableViewRowAction(style: .Default, title: "Delete") { (action, indexPath) -> Void in
                 tableView.editing = false
@@ -520,7 +521,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
 }
 
