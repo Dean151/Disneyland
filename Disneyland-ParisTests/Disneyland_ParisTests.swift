@@ -3,9 +3,10 @@
 //  Disneyland-ParisTests
 //
 //  Created by Thomas Durand on 15/06/2015.
-//  Copyright © 2015 Dean. All rights reserved.
+//  Copyright (c) 2015 Dean. All rights reserved.
 //
 
+import UIKit
 import XCTest
 
 class Disneyland_ParisTests: XCTestCase {
@@ -22,7 +23,7 @@ class Disneyland_ParisTests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssert(true, "Pass")
     }
     
     func testPerformanceExample() {

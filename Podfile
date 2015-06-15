@@ -10,8 +10,3 @@ end
 target 'Disneyland-ParisTests' do
 
 end
-
-target 'Disneyland-ParisUITests' do
-
-end
-
