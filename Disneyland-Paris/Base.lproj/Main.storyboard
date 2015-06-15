@@ -1,25 +1,158 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="55d-hy-Ku1">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Disneyland Paris-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MainViewController" customModule="Disneyland_Paris" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Disneyland Paris" id="kVO-Dt-eCi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1841" y="382"/>
+        </scene>
+        <!--Attractions View Controller-->
+        <scene sceneID="2XU-lj-UeL">
+            <objects>
+                <viewController storyboardIdentifier="attractionsView" id="ZDc-Ej-nDK" customClass="AttractionsViewController" customModule="Disneyland_Paris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xdd-3s-95P"/>
+                        <viewControllerLayoutGuide type="bottom" id="OPa-D4-oVN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dzt-0o-mu0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jZ9-7V-Hqb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jZ9-7V-Hqb" firstAttribute="leading" secondItem="Dzt-0o-mu0" secondAttribute="leading" id="068-Yw-5JU"/>
+                            <constraint firstAttribute="trailing" secondItem="jZ9-7V-Hqb" secondAttribute="trailing" id="WF4-NE-dgt"/>
+                            <constraint firstItem="jZ9-7V-Hqb" firstAttribute="top" secondItem="Dzt-0o-mu0" secondAttribute="top" id="n7G-mC-DE3"/>
+                            <constraint firstItem="OPa-D4-oVN" firstAttribute="top" secondItem="jZ9-7V-Hqb" secondAttribute="bottom" id="zN8-DU-2oT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="jZ9-7V-Hqb" id="Mj7-Ju-aza"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aUO-Di-dmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2673" y="-428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ays-44-opk">
+            <objects>
+                <navigationController id="55d-hy-Ku1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="zQ4-8f-O6b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="barTintColor" red="0.25882352939999997" green="0.56862745100000001" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="jJ3-Sr-wnB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yS0-Dl-cic" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1029" y="382"/>
+        </scene>
+        <!--Restaurants View Controller-->
+        <scene sceneID="sPP-ey-iY3">
+            <objects>
+                <viewController storyboardIdentifier="restaurantsView" id="wYd-5u-B0F" customClass="RestaurantsViewController" customModule="Disneyland_Paris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DSh-pc-ddV"/>
+                        <viewControllerLayoutGuide type="bottom" id="wnc-E2-LNW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CxI-9V-Qsb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0IN-Lk-KHD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0IN-Lk-KHD" firstAttribute="top" secondItem="CxI-9V-Qsb" secondAttribute="top" id="02U-s9-6dV"/>
+                            <constraint firstAttribute="trailing" secondItem="0IN-Lk-KHD" secondAttribute="trailing" id="7Ee-u1-ZfW"/>
+                            <constraint firstItem="wnc-E2-LNW" firstAttribute="top" secondItem="0IN-Lk-KHD" secondAttribute="bottom" id="Jv8-YI-yur"/>
+                            <constraint firstItem="0IN-Lk-KHD" firstAttribute="leading" secondItem="CxI-9V-Qsb" secondAttribute="leading" id="gMz-ZH-S6x"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="0IN-Lk-KHD" id="akk-37-PAQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VwS-ag-qjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2673" y="382"/>
+        </scene>
+        <!--Spectacles View Controller-->
+        <scene sceneID="Iy0-fE-gpP">
+            <objects>
+                <viewController storyboardIdentifier="spectaclesView" id="M03-if-eTB" customClass="SpectaclesViewController" customModule="Disneyland_Paris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dWf-zM-HuI"/>
+                        <viewControllerLayoutGuide type="bottom" id="FP5-EJ-gfh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YfE-xr-4hA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HOK-HF-PhO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FP5-EJ-gfh" firstAttribute="top" secondItem="HOK-HF-PhO" secondAttribute="bottom" id="Q0D-BJ-MNL"/>
+                            <constraint firstItem="HOK-HF-PhO" firstAttribute="leading" secondItem="YfE-xr-4hA" secondAttribute="leading" id="S2u-yc-Tzn"/>
+                            <constraint firstAttribute="trailing" secondItem="HOK-HF-PhO" secondAttribute="trailing" id="ft1-CI-tMU"/>
+                            <constraint firstItem="HOK-HF-PhO" firstAttribute="top" secondItem="YfE-xr-4hA" secondAttribute="top" id="ttP-67-wSt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="HOK-HF-PhO" id="1as-dW-89o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lQC-6x-uch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2673" y="1166"/>
         </scene>
     </scenes>
 </document>
