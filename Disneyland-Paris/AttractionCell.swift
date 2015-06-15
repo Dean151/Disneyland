@@ -8,14 +8,15 @@
 
 import UIKit
 
+let redColor = UIColor(hexadecimal: "#FF3B30")
+let orangeColor = UIColor(hexadecimal: "#FF9500")
+let greenColor = UIColor(hexadecimal: "#4CD964")
+
 class AttractionCell: UITableViewCell {
-    
-    let redColor = UIColor(hexadecimal: "#FF3B30")
-    let orangeColor = UIColor(hexadecimal: "#FF9500")
-    let greenColor = UIColor(hexadecimal: "#4CD964")
     
     // Labels
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var waitLabel: UILabel!
     
@@ -28,13 +29,11 @@ class AttractionCell: UITableViewCell {
             self.attractionImage.image = image
         }
         
-        /*
-        if restaurant.status >= 0 {
-        hours.text = "\(poi.openingTimeString) → \(poi.closingTimeString)"
+        if attraction.status >= 0 {
+            hoursLabel.text = "\(attraction.openingTimeString) → \(attraction.closingTimeString)"
         } else {
-        hours.text = ""
+            hoursLabel.text = ""
         }
-        */
         
         if attraction.status == 3 {
             let waitTime = attraction.waittime

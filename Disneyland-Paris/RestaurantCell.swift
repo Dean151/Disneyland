@@ -10,12 +10,9 @@ import UIKit
 
 class RestaurantCell: UITableViewCell {
     
-    let redColor = UIColor(hexadecimal: "#FF3B30")
-    let orangeColor = UIColor(hexadecimal: "#FF9500")
-    let greenColor = UIColor(hexadecimal: "#4CD964")
-    
     // Labels
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
     @IBOutlet weak var attractionImage: UIImageView!
@@ -27,13 +24,11 @@ class RestaurantCell: UITableViewCell {
             self.attractionImage.image = image
         }
         
-        /*
         if restaurant.status >= 0 {
-            hours.text = "\(poi.openingTimeString) → \(poi.closingTimeString)"
+            hoursLabel.text = "\(restaurant.openingTimeString) → \(restaurant.closingTimeString)"
         } else {
-            hours.text = ""
+            hoursLabel.text = ""
         }
-        */
         
         statusLabel.text = restaurant.statusString
         

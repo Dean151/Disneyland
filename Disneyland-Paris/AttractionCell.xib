@@ -22,6 +22,12 @@
                             <constraint firstAttribute="width" secondItem="NzB-uC-OL5" secondAttribute="height" multiplier="1:1" id="nkb-VH-90y"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140'" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ob2-pN-1jC">
+                        <rect key="frame" x="76" y="8" width="236" height="60"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attraction" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34P-hb-VfL">
                         <rect key="frame" x="76" y="8" width="236" height="21.5"/>
                         <animations/>
@@ -36,10 +42,11 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140'" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ob2-pN-1jC">
-                        <rect key="frame" x="76" y="8" width="236" height="60"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10h00 -&gt; 18h00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BE5-rx-5g1">
+                        <rect key="frame" x="76" y="30" width="236" height="18"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -52,13 +59,16 @@
                     <constraint firstItem="Ob2-pN-1jC" firstAttribute="leading" secondItem="NzB-uC-OL5" secondAttribute="trailing" constant="8" id="Pyq-88-60d"/>
                     <constraint firstItem="Ob2-pN-1jC" firstAttribute="trailing" secondItem="c8G-8J-e5e" secondAttribute="trailingMargin" id="Vew-JT-h7h"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Ob2-pN-1jC" secondAttribute="bottom" constant="-0.5" id="aUG-MQ-IFw"/>
+                    <constraint firstItem="BE5-rx-5g1" firstAttribute="leading" secondItem="NzB-uC-OL5" secondAttribute="trailing" constant="8" id="b98-zk-ebt"/>
                     <constraint firstItem="NzB-uC-OL5" firstAttribute="leading" secondItem="c8G-8J-e5e" secondAttribute="leadingMargin" id="dio-VB-GJe"/>
                     <constraint firstItem="laG-eY-bhh" firstAttribute="leading" secondItem="NzB-uC-OL5" secondAttribute="trailing" constant="8" id="ejU-ho-Igd"/>
                     <constraint firstItem="34P-hb-VfL" firstAttribute="leading" secondItem="NzB-uC-OL5" secondAttribute="trailing" constant="8" id="hl3-98-SIj"/>
                     <constraint firstAttribute="bottomMargin" secondItem="NzB-uC-OL5" secondAttribute="bottom" id="jmb-2M-Jsc"/>
                     <constraint firstItem="34P-hb-VfL" firstAttribute="top" secondItem="c8G-8J-e5e" secondAttribute="topMargin" id="ll6-cQ-Mi1"/>
+                    <constraint firstItem="BE5-rx-5g1" firstAttribute="top" secondItem="34P-hb-VfL" secondAttribute="bottom" id="r65-1f-Ogk"/>
                     <constraint firstItem="laG-eY-bhh" firstAttribute="trailing" secondItem="c8G-8J-e5e" secondAttribute="trailingMargin" id="tvi-tU-Kj6"/>
                     <constraint firstItem="34P-hb-VfL" firstAttribute="trailing" secondItem="c8G-8J-e5e" secondAttribute="trailingMargin" id="uXP-Sq-dbH"/>
+                    <constraint firstItem="BE5-rx-5g1" firstAttribute="trailing" secondItem="c8G-8J-e5e" secondAttribute="trailingMargin" id="xIf-mv-e6d"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -69,6 +79,7 @@
             <animations/>
             <connections>
                 <outlet property="attractionImage" destination="NzB-uC-OL5" id="22F-qX-jct"/>
+                <outlet property="hoursLabel" destination="BE5-rx-5g1" id="0a4-1Y-lMF"/>
                 <outlet property="nameLabel" destination="34P-hb-VfL" id="mr4-7u-zS7"/>
                 <outlet property="statusLabel" destination="laG-eY-bhh" id="W4H-wo-lV0"/>
                 <outlet property="waitLabel" destination="Ob2-pN-1jC" id="6Jl-6S-4zo"/>
