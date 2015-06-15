@@ -37,18 +37,14 @@ final class RestaurantsViewController: PoiViewController {
                 let json = JSON(data: attractionsList)
                 
                 for (index: String, subJson: JSON) in json {
-                    if let identifier = subJson["idbio"].string {
-                        if let name = subJson["title"].string {
-                            if let desc = subJson["description"].string {
-                                if let long = subJson["coord_x"].double {
-                                    if let lat = subJson["coord_y"].double {
-                                        let att = Restaurant(id: identifier, name: name, description: desc, latitude: lat, longitude: long)
-                                        self.poiDict.updateValue(att, forKey: identifier)
-                                        self.poiIndexes.append(identifier)
-                                    }
-                                }
-                            }
-                        }
+                    if let identifier = subJson["idbio"].string,
+                        name = subJson["title"].string,
+                        desc = subJson["description"].string,
+                        long = subJson["coord_x"].double,
+                        lat = subJson["coord_y"].double {
+                            let att = Restaurant(id: identifier, name: name, description: desc, latitude: lat, longitude: long)
+                            self.poiDict.updateValue(att, forKey: identifier)
+                            self.poiIndexes.append(identifier)
                     }
                 }
                 self.sort(beginEndUpdate: false)
@@ -70,16 +66,12 @@ final class RestaurantsViewController: PoiViewController {
                 let json = JSON(data: waitTimesList)
                 
                 for (index: String, subJson: JSON) in json {
-                    if let identifier = subJson["idbio"].string {
-                        if let poi = self.poiDict[identifier] as? Restaurant {
-                            if let opening = subJson["opening"].string {
-                                if let closing = subJson["closing"].string {
-                                    if let open = subJson["open"].int {
-                                        poi.update(open: open, opening: opening, closing: closing)
-                                    }
-                                }
-                            }
-                        }
+                    if let identifier = subJson["idbio"].string,
+                        poi = self.poiDict[identifier] as? Restaurant,
+                        opening = subJson["opening"].string,
+                        closing = subJson["closing"].string,
+                        open = subJson["open"].int {
+                            poi.update(open: open, opening: opening, closing: closing)
                     }
                 }
                 self.sort(beginEndUpdate: true)
