@@ -28,6 +28,14 @@ class AttractionCell: UITableViewCell {
             self.attractionImage.image = image
         }
         
+        /*
+        if restaurant.status >= 0 {
+        hours.text = "\(poi.openingTimeString) → \(poi.closingTimeString)"
+        } else {
+        hours.text = ""
+        }
+        */
+        
         if attraction.status == 3 {
             let waitTime = attraction.waittime
             

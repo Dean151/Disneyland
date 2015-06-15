@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpectaclesViewController: PoiViewController {
+final class SpectaclesViewController: PoiViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
