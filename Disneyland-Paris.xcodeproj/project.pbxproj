@@ -15,6 +15,9 @@
 		E97802681B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97802671B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift */; };
 		E97802711B2F2DC100F0C1B6 /* Pods_Disneyland_Paris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD0CCD1375361BD783D13F9 /* Pods_Disneyland_Paris.framework */; };
 		E97802721B2F2DC100F0C1B6 /* Pods_Disneyland_Paris.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECD0CCD1375361BD783D13F9 /* Pods_Disneyland_Paris.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9791D491B2F5FED00404256 /* Cells.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9791D481B2F5FED00404256 /* Cells.xib */; };
+		E9791D4C1B2F63BA00404256 /* AttractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9791D4B1B2F63BA00404256 /* AttractionCell.swift */; };
+		E9791D4E1B2F68DA00404256 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9791D4D1B2F68DA00404256 /* DataManager.swift */; };
 		E9F135B31B2F527C00C773E5 /* AttractionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F135B21B2F527C00C773E5 /* AttractionsViewController.swift */; };
 		E9F135B51B2F587200C773E5 /* PoiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F135B41B2F587200C773E5 /* PoiViewController.swift */; };
 		E9F135BA1B2F59F000C773E5 /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F135B91B2F59F000C773E5 /* Poi.swift */; };
@@ -60,6 +63,9 @@
 		E97802611B2F2D1800F0C1B6 /* Disneyland-ParisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Disneyland-ParisTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97802661B2F2D1800F0C1B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E97802671B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disneyland_ParisTests.swift; sourceTree = "<group>"; };
+		E9791D481B2F5FED00404256 /* Cells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cells.xib; sourceTree = "<group>"; };
+		E9791D4B1B2F63BA00404256 /* AttractionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionCell.swift; sourceTree = "<group>"; };
+		E9791D4D1B2F68DA00404256 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		E9F135B21B2F527C00C773E5 /* AttractionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionsViewController.swift; sourceTree = "<group>"; };
 		E9F135B41B2F587200C773E5 /* PoiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiViewController.swift; sourceTree = "<group>"; };
 		E9F135B91B2F59F000C773E5 /* Poi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 			children = (
 				E97802511B2F2D1800F0C1B6 /* AppDelegate.swift */,
 				E9F135B11B2F526900C773E5 /* Controller */,
+				E9791D4A1B2F608400404256 /* Cells */,
 				E9F135B81B2F59E000C773E5 /* Data */,
 				E97802551B2F2D1800F0C1B6 /* Main.storyboard */,
 				E97802581B2F2D1800F0C1B6 /* Images.xcassets */,
@@ -164,6 +171,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E9791D4A1B2F608400404256 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E9791D481B2F5FED00404256 /* Cells.xib */,
+				E9791D4B1B2F63BA00404256 /* AttractionCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		E9F135B11B2F526900C773E5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +195,7 @@
 		E9F135B81B2F59E000C773E5 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E9791D4D1B2F68DA00404256 /* DataManager.swift */,
 				E9F135B91B2F59F000C773E5 /* Poi.swift */,
 			);
 			name = Data;
@@ -270,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E97802571B2F2D1800F0C1B6 /* Main.storyboard in Resources */,
+				E9791D491B2F5FED00404256 /* Cells.xib in Resources */,
 				E978025C1B2F2D1800F0C1B6 /* LaunchScreen.xib in Resources */,
 				E97802591B2F2D1800F0C1B6 /* Images.xcassets in Resources */,
 			);
@@ -337,12 +355,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9791D4C1B2F63BA00404256 /* AttractionCell.swift in Sources */,
 				E9F135BA1B2F59F000C773E5 /* Poi.swift in Sources */,
 				E9F135BC1B2F5B1500C773E5 /* RestaurantsViewController.swift in Sources */,
 				E9F135B31B2F527C00C773E5 /* AttractionsViewController.swift in Sources */,
 				E9F135BE1B2F5B3400C773E5 /* SpectaclesViewController.swift in Sources */,
 				E9F135B51B2F587200C773E5 /* PoiViewController.swift in Sources */,
 				E97802541B2F2D1800F0C1B6 /* MainViewController.swift in Sources */,
+				E9791D4E1B2F68DA00404256 /* DataManager.swift in Sources */,
 				E97802521B2F2D1800F0C1B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

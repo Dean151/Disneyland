@@ -11,12 +11,12 @@ import CoreLocation
 
 class Poi {
     var id:String
-    var title: String
+    var name: String
     var description: String
     
-    init (id: String, title: String, description: String) {
+    init (id: String, name: String, description: String) {
         self.id = id
-        self.title = title
+        self.name = name
         self.description = description
     }
     
@@ -39,8 +39,8 @@ class Poi {
         }
     }
     
-    func searchInTitle(search: String) -> Bool {
-        return searchInString(string: self.title, search: search)
+    func searchInName(search: String) -> Bool {
+        return searchInString(string: self.name, search: search)
     }
     
     func searchInDescription(search: String) -> Bool {
@@ -56,9 +56,9 @@ class Restaurant: Poi {
     var opening = NSDate()
     var closing = NSDate()
     
-    init(id: String, title: String, description: String, latitude: Double, longitude: Double) {
+    init(id: String, name: String, description: String, latitude: Double, longitude: Double) {
         self.location = CLLocationCoordinate2DMake(latitude, longitude)
-        super.init(id: id, title: title, description: description)
+        super.init(id: id, name: name, description: description)
     }
     
     func update(#open: Int, opening: String, closing: String) {
