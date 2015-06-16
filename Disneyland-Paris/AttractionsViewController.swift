@@ -14,7 +14,7 @@ final class AttractionsViewController: PoiViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        self.title = "Attractions"
+        self.title = NSLocalizedString("Attractions", comment: "")
     }
     
     override func viewDidLoad() {
@@ -46,10 +46,11 @@ final class AttractionsViewController: PoiViewController {
                 for (index: String, subJson: JSON) in json {
                     if let identifier = subJson["idbio"].string,
                         name = subJson["title"].string,
+                        cat = subJson["categorie"].int,
                         desc = subJson["description"].string,
                         long = subJson["coord_x"].double,
                         lat = subJson["coord_y"].double {
-                            let att = Attraction(id: identifier, name: name, description: desc, latitude: lat, longitude: long)
+                            let att = Attraction(id: identifier, name: name, categorie: cat, description: desc, latitude: lat, longitude: long)
                             self.poiDict.updateValue(att, forKey: identifier)
                             self.poiIndexes.append(identifier)
                     }

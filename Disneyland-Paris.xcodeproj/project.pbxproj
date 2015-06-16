@@ -23,6 +23,7 @@
 		E9A03B351B306F880092E382 /* PoiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A03B341B306F880092E382 /* PoiCell.xib */; };
 		E9A03B371B306F930092E382 /* PoiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A03B361B306F930092E382 /* PoiCell.swift */; };
 		E9A03B391B3075D90092E382 /* ShopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A03B381B3075D90092E382 /* ShopsViewController.swift */; };
+		E9BFDC141B309B83001809F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9BFDC161B309B83001809F9 /* Localizable.strings */; };
 		E9F135B31B2F527C00C773E5 /* AttractionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F135B21B2F527C00C773E5 /* AttractionsViewController.swift */; };
 		E9F135B51B2F587200C773E5 /* PoiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F135B41B2F587200C773E5 /* PoiViewController.swift */; };
 		E9F135BA1B2F59F000C773E5 /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F135B91B2F59F000C773E5 /* Poi.swift */; };
@@ -76,6 +77,10 @@
 		E9A03B341B306F880092E382 /* PoiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PoiCell.xib; sourceTree = "<group>"; };
 		E9A03B361B306F930092E382 /* PoiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiCell.swift; sourceTree = "<group>"; };
 		E9A03B381B3075D90092E382 /* ShopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsViewController.swift; sourceTree = "<group>"; };
+		E9BFDC111B309B42001809F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		E9BFDC181B309B8D001809F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E9BFDC191B309BD2001809F9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		E9BFDC1A1B309BD2001809F9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E9F135B21B2F527C00C773E5 /* AttractionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionsViewController.swift; sourceTree = "<group>"; };
 		E9F135B41B2F587200C773E5 /* PoiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiViewController.swift; sourceTree = "<group>"; };
 		E9F135B91B2F59F000C773E5 /* Poi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
@@ -148,6 +153,7 @@
 				E9F135B11B2F526900C773E5 /* Controller */,
 				E9791D4A1B2F608400404256 /* Cells */,
 				E9F135B81B2F59E000C773E5 /* Data */,
+				E9BFDC161B309B83001809F9 /* Localizable.strings */,
 				E97802551B2F2D1800F0C1B6 /* Main.storyboard */,
 				E97802581B2F2D1800F0C1B6 /* Images.xcassets */,
 				E978025A1B2F2D1800F0C1B6 /* LaunchScreen.xib */,
@@ -285,6 +291,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = E97802431B2F2D1800F0C1B6;
 			productRefGroup = E978024D1B2F2D1800F0C1B6 /* Products */;
@@ -305,6 +312,7 @@
 				E97802571B2F2D1800F0C1B6 /* Main.storyboard in Resources */,
 				E9791D491B2F5FED00404256 /* AttractionCell.xib in Resources */,
 				E9A03B351B306F880092E382 /* PoiCell.xib in Resources */,
+				E9BFDC141B309B83001809F9 /* Localizable.strings in Resources */,
 				E978025C1B2F2D1800F0C1B6 /* LaunchScreen.xib in Resources */,
 				E9791D521B2F7B3000404256 /* RestaurantCell.xib in Resources */,
 				E97802591B2F2D1800F0C1B6 /* Images.xcassets in Resources */,
@@ -411,6 +419,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				E97802561B2F2D1800F0C1B6 /* Base */,
+				E9BFDC111B309B42001809F9 /* en */,
+				E9BFDC191B309BD2001809F9 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -421,6 +431,15 @@
 				E978025B1B2F2D1800F0C1B6 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		E9BFDC161B309B83001809F9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9BFDC181B309B8D001809F9 /* en */,
+				E9BFDC1A1B309BD2001809F9 /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

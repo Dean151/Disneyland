@@ -73,10 +73,11 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 for (index: String, subJson: JSON) in json {
                     if let identifier = subJson["idbio"].string,
                         name = subJson["title"].string,
+                        cat = subJson["categorie"].int,
                         desc = subJson["description"].string,
                         long = subJson["coord_x"].double,
                         lat = subJson["coord_y"].double {
-                            let att = Poi(id: identifier, name: name, description: desc, latitude: lat, longitude: long)
+                            let att = Poi(id: identifier, name: name, categorie: cat, description: desc, latitude: lat, longitude: long)
                             self.poiDict.updateValue(att, forKey: identifier)
                             self.poiIndexes.append(identifier)
                     }
@@ -92,9 +93,9 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func loadingError() {
         self.refreshControl.endRefreshing()
-        let alertController = UIAlertController(title: "Unable to refresh", message:
-            "Please check your connectivity and try again", preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        let alertController = UIAlertController(title: NSLocalizedString("Unable to refresh", comment: ""), message:
+            NSLocalizedString("Please check your connectivity and try again", comment: ""), preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Dismiss", comment: ""), style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
@@ -117,61 +118,57 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     // COMPARISON FUNCTIONS FOR SORT FUNCTIONS
     func sortByName(i1: String, i2: String) -> Bool {
-        if let s1 = self.poiDict[i1] {
-            if let s2 = self.poiDict[i2] {
-                return s1.name < s2.name
-            }
+        if let s1 = self.poiDict[i1], s2 = self.poiDict[i2] {
+            return s1.name < s2.name
         }
         return false
     }
     
     func sortByTimeAndStatus(i1: String, i2: String) -> Bool {
-        if let s1 = self.poiDict[i1] as? Attraction {
-            if let s2 = self.poiDict[i2] as? Attraction {
-                if s1.status == 3 && s2.status == 3 {
-                    if s1.waittime == s2.waittime {
-                        return sortByName(i1, i2: i2)
-                    } else {
-                        return s1.waittime < s2.waittime
+        if let s1 = self.poiDict[i1] as? Restaurant, s2 = self.poiDict[i2] as? Restaurant {
+            if s1.status == 3 && s2.status == 3 {
+                if let a1 = s1 as? Attraction, a2 = s2 as? Attraction {
+                    if a1.waittime != a2.waittime {
+                        return a1.waittime < a2.waittime
                     }
+                }
+                else {
+                    return sortByName(i1, i2: i2)
+                }
+                
+            } else {
+                if s1.status == s2.status {
+                    return sortByName(i1, i2: i2)
                 } else {
-                    if s1.status == s2.status {
-                        return sortByName(i1, i2: i2)
-                    } else {
-                        return s1.status > s2.status
-                    }
+                    return s1.status > s2.status
                 }
             }
         }
-        return false
+        return sortByName(i1, i2: i2)
     }
     
     func sortByDistance(i1: String, i2: String) -> Bool {
-        if let s1 = self.poiDict[i1] {
-            if let s2 = self.poiDict[i2] {
-                if s1.distance < 0 && s2.distance < 0 {
-                    return sortByName(i1, i2: i2)
-                } else {
-                    return s1.distance < s2.distance
-                }
+        if let s1 = self.poiDict[i1], s2 = self.poiDict[i2] {
+            if s1.distance < 0 && s2.distance < 0 {
+                return sortByName(i1, i2: i2)
+            } else {
+                return s1.distance < s2.distance
             }
         }
-        return false
+        return sortByName(i1, i2: i2)
     }
     
     func sortBySearchText(i1: String, i2: String) -> Bool {
-        if let s1 = self.poiDict[i1] {
-            if let s2 = self.poiDict[i2] {
-                if s1.searchInName(searchText) && !s2.searchInName(searchText) {
-                    return true
-                } else if s2.searchInName(searchText) && !s1.searchInName(searchText) {
-                    return false
-                } else {
-                    return sortByName(i1, i2: i2)
-                }
+        if let s1 = self.poiDict[i1], s2 = self.poiDict[i2] {
+            if s1.searchInName(searchText) && !s2.searchInName(searchText) {
+                return true
+            } else if s2.searchInName(searchText) && !s1.searchInName(searchText) {
+                return false
+            } else {
+                return sortByName(i1, i2: i2)
             }
         }
-        return false
+        return sortByName(i1, i2: i2)
     }
     
     // MARK : TableViewDataSource

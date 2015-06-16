@@ -9,7 +9,7 @@
 import Foundation
 
 let availableCountryCodes = ["en", "fr"]
-let countryCode = "en"
+let countryCode = NSLocalizedString("en", comment: "")
 
 let attractionsURL = "http://api.disneyfan.fr/attractions/extended/\(countryCode)"
 let restaurantsURL = "http://api.disneyfan.fr/restaurants/extended/\(countryCode)"

@@ -16,10 +16,13 @@ class AttractionCell: UITableViewCell {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var waitLabel: UILabel!
     
+    @IBOutlet weak var categorieColorBorder: UIView!
     @IBOutlet weak var attractionImage: UIImageView!
     
     func load(#attraction: Attraction) {
         nameLabel.text = attraction.name
+        
+        categorieColorBorder.backgroundColor = attraction.categorie.color
         
         if let image = UIImage(named: attraction.id) {
             self.attractionImage.image = image

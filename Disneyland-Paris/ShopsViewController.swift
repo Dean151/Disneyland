@@ -13,7 +13,7 @@ final class ShopsViewController: PoiViewController {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        self.title = "Shops"
+        self.title = NSLocalizedString("Shops", comment: "")
     }
     
     override func viewDidLoad() {

@@ -49,6 +49,11 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skK-4V-5f1">
+                        <rect key="frame" x="0.0" y="15" width="5" height="48"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <animations/>
                 <constraints>
@@ -79,6 +84,7 @@
             <animations/>
             <connections>
                 <outlet property="attractionImage" destination="NzB-uC-OL5" id="22F-qX-jct"/>
+                <outlet property="categorieColorBorder" destination="skK-4V-5f1" id="KKc-iJ-AnW"/>
                 <outlet property="hoursLabel" destination="BE5-rx-5g1" id="0a4-1Y-lMF"/>
                 <outlet property="nameLabel" destination="34P-hb-VfL" id="mr4-7u-zS7"/>
                 <outlet property="statusLabel" destination="laG-eY-bhh" id="W4H-wo-lV0"/>

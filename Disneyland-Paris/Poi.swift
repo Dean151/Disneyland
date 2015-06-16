@@ -7,19 +7,47 @@
 //
 
 import Foundation
+import UIKit
 import CoreLocation
+
+enum PoiCategorie: Int {
+    case Other = 1, Children, Family, BigThrills
+    
+    var color: UIColor {
+        switch self {
+            case .Other:
+                return UIColor()
+            case .Children:
+                return greenColor
+            case .Family:
+                return navBarColor
+            case .BigThrills:
+                return orangeColor
+        }
+    }
+    
+    static func fromRaw(rawValue: Int) -> PoiCategorie {
+        if rawValue >= 1 && rawValue <= 4 {
+            return PoiCategorie(rawValue: rawValue)!
+        } else {
+            return .Other
+        }
+    }
+}
 
 class Poi {
     var id:String
     var name: String
+    var categorie: PoiCategorie
     var description: String
     
     var location: CLLocationCoordinate2D
     var distance: Double = 0
     
-    init (id: String, name: String, description: String, latitude: Double, longitude: Double) {
+    init (id: String, name: String, categorie: Int, description: String, latitude: Double, longitude: Double) {
         self.id = id
         self.name = name
+        self.categorie = PoiCategorie.fromRaw(categorie)
         self.description = description
         
         self.location = CLLocationCoordinate2DMake(latitude, longitude)
@@ -31,6 +59,8 @@ class Poi {
             return "dlp"
         case "2":
             return "wds"
+        case "3":
+            return "dv"
         default:
             return ""
         }
@@ -87,12 +117,10 @@ class Restaurant: Poi {
         // 3 : open
         
         switch open {
+        case 0 where opening.compare(closing) == NSComparisonResult.OrderedSame:
+            return -1 // closed today
         case 0:
-            if opening.compare(closing) == NSComparisonResult.OrderedSame {
-                return -1 // closed today
-            } else {
-                return 0 // closed
-            }
+            return 0 // closed
         case 1:
             return 3 // open
         case 2:
@@ -105,15 +133,15 @@ class Restaurant: Poi {
     var statusString: String {
         switch status {
         case -1:
-            return "Closed today"
+            return NSLocalizedString("Closed today", comment: "")
         case 0:
-            return "Closed"
+            return NSLocalizedString("Closed", comment: "")
         case 1:
-            return "Opening at \(openingTimeString)"
+            return NSLocalizedString("Opening at", comment: "") + " \(openingTimeString)"
         case 2:
-            return "Interrupted"
+            return NSLocalizedString("Interrupted", comment: "")
         case 3:
-            return "Open"
+            return NSLocalizedString("Open", comment: "")
         default:
             return ""
         }

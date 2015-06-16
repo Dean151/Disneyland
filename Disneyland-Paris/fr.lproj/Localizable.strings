@@ -1,0 +1,20 @@
+/* 
+  en.strings
+  Disneyland-Paris
+
+  Created by Thomas Durand on 16/06/2015.
+  Copyright (c) 2015 Dean. All rights reserved.
+*/
+
+"en" = "fr";
+
+"Attractions" = "Attractions";
+"Restaurants" = "Restaurants";
+"Shows" = "Spectacles";
+"Shops" = "Boutiques";
+
+"Closed today" = "Fermé aujourd'hui";
+"Closed" = "Fermé";
+"Opening at" = "Ouverture à";
+"Interrupted" = "Interrompu";
+"Open" = "Ouvert";
