@@ -16,7 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Disneyland Paris" id="kVO-Dt-eCi"/>
                 </viewController>
@@ -152,7 +151,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQC-6x-uch" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673" y="1166"/>
+            <point key="canvasLocation" x="3653" y="-434"/>
+        </scene>
+        <!--Shops View Controller-->
+        <scene sceneID="gwT-uD-8zg">
+            <objects>
+                <viewController storyboardIdentifier="shopsView" id="YeT-2r-IA5" customClass="ShopsViewController" customModule="Disneyland_Paris" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fKy-R9-2co"/>
+                        <viewControllerLayoutGuide type="bottom" id="QNN-Qz-68o"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Szw-Pe-xem">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pvN-C4-600">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pvN-C4-600" firstAttribute="leading" secondItem="Szw-Pe-xem" secondAttribute="leading" id="Hu4-1l-99V"/>
+                            <constraint firstItem="pvN-C4-600" firstAttribute="top" secondItem="Szw-Pe-xem" secondAttribute="top" id="TgK-Um-mM4"/>
+                            <constraint firstItem="QNN-Qz-68o" firstAttribute="top" secondItem="pvN-C4-600" secondAttribute="bottom" id="bPX-Vb-5cO"/>
+                            <constraint firstAttribute="trailing" secondItem="pvN-C4-600" secondAttribute="trailing" id="eQI-Dk-oPL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="pvN-C4-600" id="dSI-F6-h4E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nN6-rm-VCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3653" y="382"/>
         </scene>
     </scenes>
 </document>

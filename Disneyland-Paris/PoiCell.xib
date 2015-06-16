@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PoiCell" rowHeight="76" id="FAJ-up-nzU" customClass="PoiCell" customModule="Disneyland_Paris" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FAJ-up-nzU" id="X02-0G-d48">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xi1-1G-Kg1">
+                        <rect key="frame" x="8" y="8" width="60" height="60"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="xi1-1G-Kg1" secondAttribute="height" multiplier="1:1" id="AaI-Ij-jzM"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utr-6K-0LR">
+                        <rect key="frame" x="76" y="8" width="236" height="21.5"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="utr-6K-0LR" firstAttribute="trailing" secondItem="X02-0G-d48" secondAttribute="trailingMargin" id="24J-xG-OlM"/>
+                    <constraint firstItem="xi1-1G-Kg1" firstAttribute="leading" secondItem="X02-0G-d48" secondAttribute="leadingMargin" id="DvQ-5X-54L"/>
+                    <constraint firstItem="xi1-1G-Kg1" firstAttribute="top" secondItem="X02-0G-d48" secondAttribute="topMargin" id="RUa-4b-9W4"/>
+                    <constraint firstItem="utr-6K-0LR" firstAttribute="top" secondItem="X02-0G-d48" secondAttribute="topMargin" id="VGd-gQ-BHm"/>
+                    <constraint firstItem="utr-6K-0LR" firstAttribute="leading" secondItem="xi1-1G-Kg1" secondAttribute="trailing" constant="8" id="ZpL-Ir-UF6"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="xi1-1G-Kg1" secondAttribute="bottom" id="zx0-yd-0SU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="attractionImage" destination="xi1-1G-Kg1" id="X9t-8t-eyf"/>
+                <outlet property="nameLabel" destination="utr-6K-0LR" id="rHY-0D-UYf"/>
+            </connections>
+            <point key="canvasLocation" x="163" y="293"/>
+        </tableViewCell>
+    </objects>
+</document>

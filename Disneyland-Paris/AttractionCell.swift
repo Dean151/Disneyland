@@ -8,10 +8,6 @@
 
 import UIKit
 
-let redColor = UIColor(hexadecimal: "#FF3B30")
-let orangeColor = UIColor(hexadecimal: "#FF9500")
-let greenColor = UIColor(hexadecimal: "#4CD964")
-
 class AttractionCell: UITableViewCell {
     
     // Labels
@@ -27,6 +23,8 @@ class AttractionCell: UITableViewCell {
         
         if let image = UIImage(named: attraction.id) {
             self.attractionImage.image = image
+        } else {
+            self.attractionImage.image = nil
         }
         
         if attraction.status >= 0 {

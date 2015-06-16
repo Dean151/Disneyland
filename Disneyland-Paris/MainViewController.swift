@@ -11,28 +11,27 @@ import PageMenu
 
 class MainViewController: UIViewController {
     
-    let navBarColor = UIColor(red: 66.0/255.0, green: 145.0/255.0, blue: 211.0/255.0, alpha: 1.0)
-    let backgroundColor =  UIColor.groupTableViewBackgroundColor()
     var pageMenu : CAPSPageMenu?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Getting rid of hidious bottom border of navigationbar
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        
         var controllerArray : [UIViewController] = []
         
+        let controllersAvailable : [String] = ["attractionsView", "restaurantsView", "spectaclesView"]//, "shopsView"]
+        
         // Instantiating views
-        var controller = self.storyboard!.instantiateViewControllerWithIdentifier("attractionsView") as! UIViewController
-        controller.title = "Attractions"
-        controllerArray.append(controller)
+        var controller: UIViewController!
         
-        controller = self.storyboard!.instantiateViewControllerWithIdentifier("restaurantsView") as! UIViewController
-        controller.title = "Restaurants"
-        controllerArray.append(controller)
-        
-        controller = self.storyboard!.instantiateViewControllerWithIdentifier("spectaclesView") as! UIViewController
-        controller.title = "Spectacles"
-        controllerArray.append(controller)
+        for identifier in controllersAvailable {
+            controller = self.storyboard!.instantiateViewControllerWithIdentifier(identifier) as! UIViewController
+            controllerArray.append(controller)
+        }
         
         // Customization
         var parameters: [CAPSPageMenuOption] = [
@@ -42,8 +41,10 @@ class MainViewController: UIViewController {
             .UnselectedMenuItemLabelColor(UIColor(white: 1, alpha: 0.5)),
             .MenuItemSeparatorColor(UIColor(white: 1, alpha: 0)),
             .BottomMenuHairlineColor(navBarColor),
-            .MenuHeight(40.0),
-            .UseMenuLikeSegmentedControl(true)
+            .MenuItemFont(UIFont.systemFontOfSize(15.0)),
+            .UseMenuLikeSegmentedControl(true),
+            .MenuItemWidthBasedOnTitleTextWidth(true),
+            .CenterMenuItems(false)
         ]
         
         // Initialize page menu with controller array, frame, and optional parameters

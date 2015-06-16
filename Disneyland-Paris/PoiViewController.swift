@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 enum typeOfSort: Int {
     case byName=0, byWaitTimes, byDistance
@@ -16,13 +17,14 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBOutlet var tableView: UITableView!
     var refreshControl = UIRefreshControl()
+    var searchController = UISearchController(searchResultsController: nil)
     
     var sortType: typeOfSort = .byWaitTimes
     
     var poiDict = [String: Poi]()
     var poiIndexes = [String]()
     
-    var search = [String]()
+    var searchIndexes = [String]()
     var searchText: String = ""
     
     override func viewDidLoad() {
@@ -37,9 +39,12 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
         self.tableView.registerNib(nib, forCellReuseIdentifier: "AttractionCell")
         nib =  UINib(nibName: "RestaurantCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "RestaurantCell")
+        nib =  UINib(nibName: "PoiCell", bundle: nil)
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "PoiCell")
+        
+        self.tableView.contentOffset = CGPointZero;
         
         // Refresh Control
-        //self.refreshControl.bounds = CGRectMake((self.view.bounds.width - refreshControl.bounds.size.width)/2, 0, refreshControl.bounds.size.width,  refreshControl.bounds.size.height);
         self.refreshControl.addTarget(self, action: "manualRefresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl)
         
@@ -51,11 +56,38 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
         self.refreshControl.endRefreshing()
     }
     
-    func autoRefresh() {
+    final func autoRefresh() {
         // AutoRefresh just call manual refresh function, after activating refreshControl
         println("autorefreshing");
         self.refreshControl.beginRefreshing()
         self.manualRefresh(self)
+    }
+    
+    final func getPoiWithUrl(url: String, completion: () -> Void) {
+        DataManager.getUrlWithSuccess(url: url, success: { (attractions, error) -> Void in
+            if let e = error {
+                self.loadingError()
+            } else if let poiList = attractions {
+                let json = JSON(data: poiList)
+                
+                for (index: String, subJson: JSON) in json {
+                    if let identifier = subJson["idbio"].string,
+                        name = subJson["title"].string,
+                        desc = subJson["description"].string,
+                        long = subJson["coord_x"].double,
+                        lat = subJson["coord_y"].double {
+                            let att = Poi(id: identifier, name: name, description: desc, latitude: lat, longitude: long)
+                            self.poiDict.updateValue(att, forKey: identifier)
+                            self.poiIndexes.append(identifier)
+                    }
+                }
+                self.sort(beginEndUpdate: false)
+                println("Success to get pois")
+                completion()
+            } else {
+                self.loadingError()
+            }
+        })
     }
     
     func loadingError() {
@@ -115,8 +147,8 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func sortByDistance(i1: String, i2: String) -> Bool {
-        if let s1 = self.poiDict[i1] as? Restaurant {
-            if let s2 = self.poiDict[i2] as? Restaurant {
+        if let s1 = self.poiDict[i1] {
+            if let s2 = self.poiDict[i2] {
                 if s1.distance < 0 && s2.distance < 0 {
                     return sortByName(i1, i2: i2)
                 } else {
@@ -142,23 +174,44 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
         return false
     }
     
+    // MARK : TableViewDataSource
+    
     final func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return poiIndexes.count
+        if tableView == self.tableView {
+            return poiIndexes.count
+        } else {
+            return searchIndexes.count
+        }
     }
     
     final func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if let attraction = poiDict[ poiIndexes[indexPath.row] ] as? Attraction {
+        var index = ""
+        
+        if tableView == self.tableView {
+            index = poiIndexes[indexPath.row]
+        } else {
+            index = searchIndexes[indexPath.row]
+        }
+        
+        
+        if let attraction = poiDict[ index ] as? Attraction {
             let cell = tableView.dequeueReusableCellWithIdentifier("AttractionCell", forIndexPath: indexPath) as! AttractionCell
             
             cell.load(attraction: attraction)
             
             return cell
         }
-        else if let restaurant = poiDict[ poiIndexes[indexPath.row] ] as? Restaurant {
+        else if let restaurant = poiDict[ index ] as? Restaurant {
             let cell = tableView.dequeueReusableCellWithIdentifier("RestaurantCell", forIndexPath: indexPath) as! RestaurantCell
             
             cell.load(restaurant: restaurant)
+            
+            return cell
+        } else if let poi = poiDict[ index ] {
+            let cell = tableView.dequeueReusableCellWithIdentifier("PoiCell", forIndexPath: indexPath) as! PoiCell
+            
+            cell.load(poi: poi)
             
             return cell
         }

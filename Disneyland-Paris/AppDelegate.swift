@@ -8,6 +8,13 @@
 
 import UIKit
 
+// Color description
+let redColor = UIColor(hexadecimal: "#FF3B30")
+let orangeColor = UIColor(hexadecimal: "#FF9500")
+let greenColor = UIColor(hexadecimal: "#4CD964")
+let navBarColor = UIColor(red: 66.0/255.0, green: 145.0/255.0, blue: 211.0/255.0, alpha: 1.0)
+let backgroundColor = UIColor.grayColor()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

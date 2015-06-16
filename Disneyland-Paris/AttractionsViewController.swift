@@ -11,6 +11,12 @@ import SwiftyJSON
 
 final class AttractionsViewController: PoiViewController {
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        self.title = "Attractions"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

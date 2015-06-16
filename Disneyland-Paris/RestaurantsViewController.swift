@@ -11,6 +11,12 @@ import SwiftyJSON
 
 final class RestaurantsViewController: PoiViewController {
     
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        self.title = "Restaurants"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -33,8 +39,8 @@ final class RestaurantsViewController: PoiViewController {
         DataManager.getUrlWithSuccess(url: restaurantsURL, success: { (attractions, error) -> Void in
             if let e = error {
                 self.loadingError()
-            } else if let attractionsList = attractions {
-                let json = JSON(data: attractionsList)
+            } else if let restaurantsList = attractions {
+                let json = JSON(data: restaurantsList)
                 
                 for (index: String, subJson: JSON) in json {
                     if let identifier = subJson["idbio"].string,

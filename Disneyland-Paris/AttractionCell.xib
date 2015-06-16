@@ -23,7 +23,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140'" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ob2-pN-1jC">
-                        <rect key="frame" x="76" y="8" width="236" height="60"/>
+                        <rect key="frame" x="76" y="20.5" width="236" height="47.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                         <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="laG-eY-bhh" secondAttribute="bottom" id="2ST-9e-0e5"/>
                     <constraint firstItem="NzB-uC-OL5" firstAttribute="top" secondItem="c8G-8J-e5e" secondAttribute="topMargin" id="4XT-5k-a3K"/>
-                    <constraint firstItem="Ob2-pN-1jC" firstAttribute="top" secondItem="c8G-8J-e5e" secondAttribute="topMargin" id="7q7-zp-95y"/>
+                    <constraint firstItem="Ob2-pN-1jC" firstAttribute="top" secondItem="c8G-8J-e5e" secondAttribute="topMargin" constant="12.5" id="7q7-zp-95y"/>
                     <constraint firstAttribute="bottomMargin" secondItem="laG-eY-bhh" secondAttribute="bottom" constant="-0.5" id="81l-Oe-20j"/>
                     <constraint firstItem="Ob2-pN-1jC" firstAttribute="leading" secondItem="NzB-uC-OL5" secondAttribute="trailing" constant="8" id="Pyq-88-60d"/>
                     <constraint firstItem="Ob2-pN-1jC" firstAttribute="trailing" secondItem="c8G-8J-e5e" secondAttribute="trailingMargin" id="Vew-JT-h7h"/>

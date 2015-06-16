@@ -20,6 +20,9 @@
 		E9791D4E1B2F68DA00404256 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9791D4D1B2F68DA00404256 /* DataManager.swift */; };
 		E9791D501B2F7A4A00404256 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9791D4F1B2F7A4A00404256 /* RestaurantCell.swift */; };
 		E9791D521B2F7B3000404256 /* RestaurantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9791D511B2F7B3000404256 /* RestaurantCell.xib */; };
+		E9A03B351B306F880092E382 /* PoiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A03B341B306F880092E382 /* PoiCell.xib */; };
+		E9A03B371B306F930092E382 /* PoiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A03B361B306F930092E382 /* PoiCell.swift */; };
+		E9A03B391B3075D90092E382 /* ShopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A03B381B3075D90092E382 /* ShopsViewController.swift */; };
 		E9F135B31B2F527C00C773E5 /* AttractionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F135B21B2F527C00C773E5 /* AttractionsViewController.swift */; };
 		E9F135B51B2F587200C773E5 /* PoiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F135B41B2F587200C773E5 /* PoiViewController.swift */; };
 		E9F135BA1B2F59F000C773E5 /* Poi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F135B91B2F59F000C773E5 /* Poi.swift */; };
@@ -70,6 +73,9 @@
 		E9791D4D1B2F68DA00404256 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		E9791D4F1B2F7A4A00404256 /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		E9791D511B2F7B3000404256 /* RestaurantCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantCell.xib; sourceTree = "<group>"; };
+		E9A03B341B306F880092E382 /* PoiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PoiCell.xib; sourceTree = "<group>"; };
+		E9A03B361B306F930092E382 /* PoiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiCell.swift; sourceTree = "<group>"; };
+		E9A03B381B3075D90092E382 /* ShopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsViewController.swift; sourceTree = "<group>"; };
 		E9F135B21B2F527C00C773E5 /* AttractionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionsViewController.swift; sourceTree = "<group>"; };
 		E9F135B41B2F587200C773E5 /* PoiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiViewController.swift; sourceTree = "<group>"; };
 		E9F135B91B2F59F000C773E5 /* Poi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poi.swift; sourceTree = "<group>"; };
@@ -182,6 +188,8 @@
 				E9791D4B1B2F63BA00404256 /* AttractionCell.swift */,
 				E9791D511B2F7B3000404256 /* RestaurantCell.xib */,
 				E9791D4F1B2F7A4A00404256 /* RestaurantCell.swift */,
+				E9A03B341B306F880092E382 /* PoiCell.xib */,
+				E9A03B361B306F930092E382 /* PoiCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -194,6 +202,7 @@
 				E9F135B21B2F527C00C773E5 /* AttractionsViewController.swift */,
 				E9F135BB1B2F5B1500C773E5 /* RestaurantsViewController.swift */,
 				E9F135BD1B2F5B3400C773E5 /* SpectaclesViewController.swift */,
+				E9A03B381B3075D90092E382 /* ShopsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -295,6 +304,7 @@
 			files = (
 				E97802571B2F2D1800F0C1B6 /* Main.storyboard in Resources */,
 				E9791D491B2F5FED00404256 /* AttractionCell.xib in Resources */,
+				E9A03B351B306F880092E382 /* PoiCell.xib in Resources */,
 				E978025C1B2F2D1800F0C1B6 /* LaunchScreen.xib in Resources */,
 				E9791D521B2F7B3000404256 /* RestaurantCell.xib in Resources */,
 				E97802591B2F2D1800F0C1B6 /* Images.xcassets in Resources */,
@@ -365,7 +375,9 @@
 			files = (
 				E9791D501B2F7A4A00404256 /* RestaurantCell.swift in Sources */,
 				E9791D4C1B2F63BA00404256 /* AttractionCell.swift in Sources */,
+				E9A03B371B306F930092E382 /* PoiCell.swift in Sources */,
 				E9F135BA1B2F59F000C773E5 /* Poi.swift in Sources */,
+				E9A03B391B3075D90092E382 /* ShopsViewController.swift in Sources */,
 				E9F135BC1B2F5B1500C773E5 /* RestaurantsViewController.swift in Sources */,
 				E9F135B31B2F527C00C773E5 /* AttractionsViewController.swift in Sources */,
 				E9F135BE1B2F5B3400C773E5 /* SpectaclesViewController.swift in Sources */,

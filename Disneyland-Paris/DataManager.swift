@@ -13,6 +13,10 @@ let countryCode = "en"
 
 let attractionsURL = "http://api.disneyfan.fr/attractions/extended/\(countryCode)"
 let restaurantsURL = "http://api.disneyfan.fr/restaurants/extended/\(countryCode)"
+let showsURL = "http://api.disneyfan.fr/shows/\(countryCode)"
+let paradesURL = "http://api.disneyfan.fr/parades/\(countryCode)"
+let shopsURL = "http://api.disneyfan.fr/shops/\(countryCode)"
+
 let waitTimesURL = "http://api.disneyfan.fr/waittimes"
 let ouvertureURL = "http://api.disneyfan.fr/ouverture"
 

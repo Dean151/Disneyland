@@ -14,10 +14,15 @@ class Poi {
     var name: String
     var description: String
     
-    init (id: String, name: String, description: String) {
+    var location: CLLocationCoordinate2D
+    var distance: Double = 0
+    
+    init (id: String, name: String, description: String, latitude: Double, longitude: Double) {
         self.id = id
         self.name = name
         self.description = description
+        
+        self.location = CLLocationCoordinate2DMake(latitude, longitude)
     }
     
     var parc: String {
@@ -49,17 +54,9 @@ class Poi {
 }
 
 class Restaurant: Poi {
-    var location: CLLocationCoordinate2D
-    var distance: Double = 0
-    
     var open: Int = 0
     var opening = NSDate()
     var closing = NSDate()
-    
-    init(id: String, name: String, description: String, latitude: Double, longitude: Double) {
-        self.location = CLLocationCoordinate2DMake(latitude, longitude)
-        super.init(id: id, name: name, description: description)
-    }
     
     func update(#open: Int, opening: String, closing: String) {
         self.open = open

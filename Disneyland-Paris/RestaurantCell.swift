@@ -22,6 +22,8 @@ class RestaurantCell: UITableViewCell {
         
         if let image = UIImage(named: restaurant.id) {
             self.attractionImage.image = image
+        } else {
+            self.attractionImage.image = nil
         }
         
         if restaurant.status >= 0 {
