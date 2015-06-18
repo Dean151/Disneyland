@@ -17,7 +17,6 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     @IBOutlet var tableView: UITableView!
     var refreshControl = UIRefreshControl()
-    var searchController = UISearchController(searchResultsController: nil)
     
     var sortType: typeOfSort = .byWaitTimes
     
@@ -35,11 +34,7 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
         tableView.delegate = self
         
         // Nib for CustomCells
-        var nib = UINib(nibName: "AttractionCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "AttractionCell")
-        nib =  UINib(nibName: "RestaurantCell", bundle: nil)
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "RestaurantCell")
-        nib =  UINib(nibName: "PoiCell", bundle: nil)
+        var nib =  UINib(nibName: "PoiCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "PoiCell")
         
         self.tableView.contentOffset = CGPointZero;
@@ -182,6 +177,7 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     final func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("PoiCell", forIndexPath: indexPath) as! PoiCell
         
         var index = ""
         
@@ -193,27 +189,16 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         
         if let attraction = poiDict[ index ] as? Attraction {
-            let cell = tableView.dequeueReusableCellWithIdentifier("AttractionCell", forIndexPath: indexPath) as! AttractionCell
-            
             cell.load(attraction: attraction)
-            
-            return cell
         }
         else if let restaurant = poiDict[ index ] as? Restaurant {
-            let cell = tableView.dequeueReusableCellWithIdentifier("RestaurantCell", forIndexPath: indexPath) as! RestaurantCell
-            
             cell.load(restaurant: restaurant)
-            
-            return cell
-        } else if let poi = poiDict[ index ] {
-            let cell = tableView.dequeueReusableCellWithIdentifier("PoiCell", forIndexPath: indexPath) as! PoiCell
-            
+        }
+        else if let poi = poiDict[ index ] {
             cell.load(poi: poi)
-            
-            return cell
         }
         
-        return UITableViewCell()
+        return cell
     }
     
     final func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

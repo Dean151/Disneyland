@@ -16,7 +16,7 @@ enum PoiCategorie: Int {
     var color: UIColor {
         switch self {
             case .Other:
-                return UIColor()
+                return UIColor.whiteColor()
             case .Children:
                 return greenColor
             case .Family:
@@ -84,7 +84,7 @@ class Poi {
 }
 
 class Restaurant: Poi {
-    var open: Int = 0
+    var open: Int = -2
     var opening = NSDate()
     var closing = NSDate()
     
@@ -110,6 +110,7 @@ class Restaurant: Poi {
     }
     
     var status: Int {
+        // -2 : Unknown
         // -1 : closed today
         // 0 : closed
         // 1 : opening at
@@ -126,7 +127,7 @@ class Restaurant: Poi {
         case 2:
             return 2 // interrupted
         default:
-            return 0 // closed
+            return -2 // closed
         }
     }
     
@@ -143,7 +144,7 @@ class Restaurant: Poi {
         case 3:
             return NSLocalizedString("Open", comment: "")
         default:
-            return ""
+            return NSLocalizedString("Unknown", comment: "")
         }
     }
 }

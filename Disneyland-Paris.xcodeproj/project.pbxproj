@@ -15,13 +15,9 @@
 		E97802681B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97802671B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift */; };
 		E97802711B2F2DC100F0C1B6 /* Pods_Disneyland_Paris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD0CCD1375361BD783D13F9 /* Pods_Disneyland_Paris.framework */; };
 		E97802721B2F2DC100F0C1B6 /* Pods_Disneyland_Paris.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECD0CCD1375361BD783D13F9 /* Pods_Disneyland_Paris.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E9791D491B2F5FED00404256 /* AttractionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9791D481B2F5FED00404256 /* AttractionCell.xib */; };
-		E9791D4C1B2F63BA00404256 /* AttractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9791D4B1B2F63BA00404256 /* AttractionCell.swift */; };
+		E9791D491B2F5FED00404256 /* PoiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9791D481B2F5FED00404256 /* PoiCell.xib */; };
+		E9791D4C1B2F63BA00404256 /* PoiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9791D4B1B2F63BA00404256 /* PoiCell.swift */; };
 		E9791D4E1B2F68DA00404256 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9791D4D1B2F68DA00404256 /* DataManager.swift */; };
-		E9791D501B2F7A4A00404256 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9791D4F1B2F7A4A00404256 /* RestaurantCell.swift */; };
-		E9791D521B2F7B3000404256 /* RestaurantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9791D511B2F7B3000404256 /* RestaurantCell.xib */; };
-		E9A03B351B306F880092E382 /* PoiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A03B341B306F880092E382 /* PoiCell.xib */; };
-		E9A03B371B306F930092E382 /* PoiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A03B361B306F930092E382 /* PoiCell.swift */; };
 		E9A03B391B3075D90092E382 /* ShopsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A03B381B3075D90092E382 /* ShopsViewController.swift */; };
 		E9BFDC141B309B83001809F9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9BFDC161B309B83001809F9 /* Localizable.strings */; };
 		E9F135B31B2F527C00C773E5 /* AttractionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F135B21B2F527C00C773E5 /* AttractionsViewController.swift */; };
@@ -69,13 +65,9 @@
 		E97802611B2F2D1800F0C1B6 /* Disneyland-ParisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Disneyland-ParisTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97802661B2F2D1800F0C1B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E97802671B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disneyland_ParisTests.swift; sourceTree = "<group>"; };
-		E9791D481B2F5FED00404256 /* AttractionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttractionCell.xib; sourceTree = "<group>"; };
-		E9791D4B1B2F63BA00404256 /* AttractionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionCell.swift; sourceTree = "<group>"; };
+		E9791D481B2F5FED00404256 /* PoiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PoiCell.xib; sourceTree = "<group>"; };
+		E9791D4B1B2F63BA00404256 /* PoiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiCell.swift; sourceTree = "<group>"; };
 		E9791D4D1B2F68DA00404256 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		E9791D4F1B2F7A4A00404256 /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
-		E9791D511B2F7B3000404256 /* RestaurantCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantCell.xib; sourceTree = "<group>"; };
-		E9A03B341B306F880092E382 /* PoiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PoiCell.xib; sourceTree = "<group>"; };
-		E9A03B361B306F930092E382 /* PoiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoiCell.swift; sourceTree = "<group>"; };
 		E9A03B381B3075D90092E382 /* ShopsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopsViewController.swift; sourceTree = "<group>"; };
 		E9BFDC111B309B42001809F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		E9BFDC181B309B8D001809F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -190,12 +182,8 @@
 		E9791D4A1B2F608400404256 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				E9791D481B2F5FED00404256 /* AttractionCell.xib */,
-				E9791D4B1B2F63BA00404256 /* AttractionCell.swift */,
-				E9791D511B2F7B3000404256 /* RestaurantCell.xib */,
-				E9791D4F1B2F7A4A00404256 /* RestaurantCell.swift */,
-				E9A03B341B306F880092E382 /* PoiCell.xib */,
-				E9A03B361B306F930092E382 /* PoiCell.swift */,
+				E9791D481B2F5FED00404256 /* PoiCell.xib */,
+				E9791D4B1B2F63BA00404256 /* PoiCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -310,11 +298,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E97802571B2F2D1800F0C1B6 /* Main.storyboard in Resources */,
-				E9791D491B2F5FED00404256 /* AttractionCell.xib in Resources */,
-				E9A03B351B306F880092E382 /* PoiCell.xib in Resources */,
+				E9791D491B2F5FED00404256 /* PoiCell.xib in Resources */,
 				E9BFDC141B309B83001809F9 /* Localizable.strings in Resources */,
 				E978025C1B2F2D1800F0C1B6 /* LaunchScreen.xib in Resources */,
-				E9791D521B2F7B3000404256 /* RestaurantCell.xib in Resources */,
 				E97802591B2F2D1800F0C1B6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,9 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9791D501B2F7A4A00404256 /* RestaurantCell.swift in Sources */,
-				E9791D4C1B2F63BA00404256 /* AttractionCell.swift in Sources */,
-				E9A03B371B306F930092E382 /* PoiCell.swift in Sources */,
+				E9791D4C1B2F63BA00404256 /* PoiCell.swift in Sources */,
 				E9F135BA1B2F59F000C773E5 /* Poi.swift in Sources */,
 				E9A03B391B3075D90092E382 /* ShopsViewController.swift in Sources */,
 				E9F135BC1B2F5B1500C773E5 /* RestaurantsViewController.swift in Sources */,
