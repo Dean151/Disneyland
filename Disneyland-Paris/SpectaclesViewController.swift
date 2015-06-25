@@ -27,6 +27,7 @@ final class SpectaclesViewController: PoiViewController {
     }
     
     func getShowsAndParades(completion: () -> Void) {
+        self.poiIndexes.removeAll()
         self.getPoiWithUrl(showsURL) {
             self.getParade() {
                 completion()
