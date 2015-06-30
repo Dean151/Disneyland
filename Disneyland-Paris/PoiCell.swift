@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class PoiCell: UITableViewCell {
     
@@ -22,6 +23,8 @@ class PoiCell: UITableViewCell {
     func load(#poi: Poi) {
         // Default view
         categorieColorBorder.backgroundColor = UIColor.whiteColor()
+        categorieColorBorder.layer.cornerRadius = 5
+        categorieColorBorder.layer.masksToBounds = true
         attractionImage.image = nil
         hoursLabel.text = ""
         statusLabel.text = ""
@@ -32,6 +35,8 @@ class PoiCell: UITableViewCell {
         
         if let image = UIImage(named: poi.id) {
             self.attractionImage.image = image
+        } else {
+            println("Image \(poi.id) not found for \(poi.name)")
         }
     }
     

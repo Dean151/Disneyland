@@ -23,7 +23,7 @@ let ouvertureURL = "http://api.disneyfan.fr/ouverture"
 class DataManager {
     
     static func loadDataFromURL(url: NSURL, completion:(data: NSData?, error: NSError?) -> Void) {
-        var session = NSURLSession.sharedSession()
+        //var session = NSURLSession.sharedSession()
         
         var request:NSMutableURLRequest = NSMutableURLRequest(URL:url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData, timeoutInterval: 5)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {

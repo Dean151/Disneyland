@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -49,10 +49,14 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skK-4V-5f1">
-                        <rect key="frame" x="0.0" y="15" width="5" height="48"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="skK-4V-5f1">
+                        <rect key="frame" x="-15" y="14" width="15" height="48"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="Bxt-Gq-KnS"/>
+                            <constraint firstAttribute="height" constant="48" id="vkJ-Df-efw"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <animations/>
@@ -61,11 +65,13 @@
                     <constraint firstItem="NzB-uC-OL5" firstAttribute="top" secondItem="c8G-8J-e5e" secondAttribute="topMargin" id="4XT-5k-a3K"/>
                     <constraint firstItem="Ob2-pN-1jC" firstAttribute="top" secondItem="c8G-8J-e5e" secondAttribute="topMargin" constant="12.5" id="7q7-zp-95y"/>
                     <constraint firstAttribute="bottomMargin" secondItem="laG-eY-bhh" secondAttribute="bottom" constant="-0.5" id="81l-Oe-20j"/>
+                    <constraint firstAttribute="centerY" secondItem="skK-4V-5f1" secondAttribute="centerY" id="8Ar-GB-u2S"/>
                     <constraint firstItem="Ob2-pN-1jC" firstAttribute="leading" secondItem="NzB-uC-OL5" secondAttribute="trailing" constant="8" id="Pyq-88-60d"/>
                     <constraint firstItem="Ob2-pN-1jC" firstAttribute="trailing" secondItem="c8G-8J-e5e" secondAttribute="trailingMargin" id="Vew-JT-h7h"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Ob2-pN-1jC" secondAttribute="bottom" constant="-0.5" id="aUG-MQ-IFw"/>
                     <constraint firstItem="BE5-rx-5g1" firstAttribute="leading" secondItem="NzB-uC-OL5" secondAttribute="trailing" constant="8" id="b98-zk-ebt"/>
                     <constraint firstItem="NzB-uC-OL5" firstAttribute="leading" secondItem="c8G-8J-e5e" secondAttribute="leadingMargin" id="dio-VB-GJe"/>
+                    <constraint firstItem="NzB-uC-OL5" firstAttribute="leading" secondItem="skK-4V-5f1" secondAttribute="trailing" constant="8" id="duF-dt-fLA"/>
                     <constraint firstItem="laG-eY-bhh" firstAttribute="leading" secondItem="NzB-uC-OL5" secondAttribute="trailing" constant="8" id="ejU-ho-Igd"/>
                     <constraint firstItem="34P-hb-VfL" firstAttribute="leading" secondItem="NzB-uC-OL5" secondAttribute="trailing" constant="8" id="hl3-98-SIj"/>
                     <constraint firstAttribute="bottomMargin" secondItem="NzB-uC-OL5" secondAttribute="bottom" id="jmb-2M-Jsc"/>
