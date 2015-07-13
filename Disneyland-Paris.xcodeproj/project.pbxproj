@@ -13,7 +13,6 @@
 		E97802591B2F2D1800F0C1B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E97802581B2F2D1800F0C1B6 /* Images.xcassets */; };
 		E978025C1B2F2D1800F0C1B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E978025A1B2F2D1800F0C1B6 /* LaunchScreen.xib */; };
 		E97802681B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97802671B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift */; };
-		E97802711B2F2DC100F0C1B6 /* Pods_Disneyland_Paris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD0CCD1375361BD783D13F9 /* Pods_Disneyland_Paris.framework */; };
 		E97802721B2F2DC100F0C1B6 /* Pods_Disneyland_Paris.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECD0CCD1375361BD783D13F9 /* Pods_Disneyland_Paris.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E9791D491B2F5FED00404256 /* PoiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9791D481B2F5FED00404256 /* PoiCell.xib */; };
 		E9791D4C1B2F63BA00404256 /* PoiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9791D4B1B2F63BA00404256 /* PoiCell.swift */; };
@@ -87,7 +86,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBAD54AA0A3280344DD669A5 /* Pods_Disneyland_Paris.framework in Frameworks */,
-				E97802711B2F2DC100F0C1B6 /* Pods_Disneyland_Paris.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +257,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Dean;
 				TargetAttributes = {
 					E978024B1B2F2D1800F0C1B6 = {

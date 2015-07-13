@@ -3,6 +3,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Disneyland-Paris' do
+    pod 'Alamofire'
     pod 'SwiftyJSON'
     pod 'PageMenu'
 end
