@@ -5,7 +5,6 @@ use_frameworks!
 target 'Disneyland-Paris' do
     pod 'Alamofire'
     pod 'SwiftyJSON'
-    pod 'PageMenu'
 end
 
 target 'Disneyland-ParisTests' do

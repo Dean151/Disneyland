@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E97802521B2F2D1800F0C1B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97802511B2F2D1800F0C1B6 /* AppDelegate.swift */; };
-		E97802541B2F2D1800F0C1B6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97802531B2F2D1800F0C1B6 /* MainViewController.swift */; };
 		E97802571B2F2D1800F0C1B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97802551B2F2D1800F0C1B6 /* Main.storyboard */; };
 		E97802591B2F2D1800F0C1B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E97802581B2F2D1800F0C1B6 /* Images.xcassets */; };
 		E978025C1B2F2D1800F0C1B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E978025A1B2F2D1800F0C1B6 /* LaunchScreen.xib */; };
@@ -57,7 +56,6 @@
 		E978024C1B2F2D1800F0C1B6 /* Disneyland-Paris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Disneyland-Paris.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97802501B2F2D1800F0C1B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E97802511B2F2D1800F0C1B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E97802531B2F2D1800F0C1B6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E97802561B2F2D1800F0C1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E97802581B2F2D1800F0C1B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E978025B1B2F2D1800F0C1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 		E9F135B11B2F526900C773E5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E97802531B2F2D1800F0C1B6 /* MainViewController.swift */,
 				E9F135B41B2F587200C773E5 /* PoiViewController.swift */,
 				E9F135B21B2F527C00C773E5 /* AttractionsViewController.swift */,
 				E9F135BB1B2F5B1500C773E5 /* RestaurantsViewController.swift */,
@@ -372,7 +369,6 @@
 				E9F135B31B2F527C00C773E5 /* AttractionsViewController.swift in Sources */,
 				E9F135BE1B2F5B3400C773E5 /* SpectaclesViewController.swift in Sources */,
 				E9F135B51B2F587200C773E5 /* PoiViewController.swift in Sources */,
-				E97802541B2F2D1800F0C1B6 /* MainViewController.swift in Sources */,
 				E9791D4E1B2F68DA00404256 /* DataManager.swift in Sources */,
 				E97802521B2F2D1800F0C1B6 /* AppDelegate.swift in Sources */,
 			);

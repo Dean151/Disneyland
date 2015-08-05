@@ -23,7 +23,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140'" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ob2-pN-1jC">
-                        <rect key="frame" x="76" y="20.5" width="236" height="47.5"/>
+                        <rect key="frame" x="76" y="20" width="236" height="47.5"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                         <nil key="highlightedColor"/>
@@ -43,9 +43,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10h00 -&gt; 18h00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BE5-rx-5g1">
-                        <rect key="frame" x="76" y="30" width="236" height="18"/>
+                        <rect key="frame" x="76" y="30" width="236" height="16"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -60,6 +60,7 @@
                     </view>
                 </subviews>
                 <animations/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="laG-eY-bhh" secondAttribute="bottom" id="2ST-9e-0e5"/>
                     <constraint firstItem="NzB-uC-OL5" firstAttribute="top" secondItem="c8G-8J-e5e" secondAttribute="topMargin" id="4XT-5k-a3K"/>
