@@ -11,7 +11,6 @@
 		E97802571B2F2D1800F0C1B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97802551B2F2D1800F0C1B6 /* Main.storyboard */; };
 		E97802591B2F2D1800F0C1B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E97802581B2F2D1800F0C1B6 /* Images.xcassets */; };
 		E978025C1B2F2D1800F0C1B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E978025A1B2F2D1800F0C1B6 /* LaunchScreen.xib */; };
-		E97802681B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97802671B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift */; };
 		E97802721B2F2DC100F0C1B6 /* Pods_Disneyland_Paris.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECD0CCD1375361BD783D13F9 /* Pods_Disneyland_Paris.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E9791D491B2F5FED00404256 /* PoiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9791D481B2F5FED00404256 /* PoiCell.xib */; };
 		E9791D4C1B2F63BA00404256 /* PoiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9791D4B1B2F63BA00404256 /* PoiCell.swift */; };
@@ -25,16 +24,6 @@
 		E9F135BE1B2F5B3400C773E5 /* SpectaclesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F135BD1B2F5B3400C773E5 /* SpectaclesViewController.swift */; };
 		FBAD54AA0A3280344DD669A5 /* Pods_Disneyland_Paris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD0CCD1375361BD783D13F9 /* Pods_Disneyland_Paris.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E97802621B2F2D1800F0C1B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E97802441B2F2D1800F0C1B6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E978024B1B2F2D1800F0C1B6;
-			remoteInfo = "Disneyland-Paris";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		E97802731B2F2DC100F0C1B6 /* Embed Frameworks */ = {
@@ -59,7 +48,6 @@
 		E97802561B2F2D1800F0C1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E97802581B2F2D1800F0C1B6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E978025B1B2F2D1800F0C1B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		E97802611B2F2D1800F0C1B6 /* Disneyland-ParisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Disneyland-ParisTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97802661B2F2D1800F0C1B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E97802671B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disneyland_ParisTests.swift; sourceTree = "<group>"; };
 		E9791D481B2F5FED00404256 /* PoiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PoiCell.xib; sourceTree = "<group>"; };
@@ -84,13 +72,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBAD54AA0A3280344DD669A5 /* Pods_Disneyland_Paris.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E978025E1B2F2D1800F0C1B6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				E978024C1B2F2D1800F0C1B6 /* Disneyland-Paris.app */,
-				E97802611B2F2D1800F0C1B6 /* Disneyland-ParisTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,41 +209,19 @@
 			productReference = E978024C1B2F2D1800F0C1B6 /* Disneyland-Paris.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E97802601B2F2D1800F0C1B6 /* Disneyland-ParisTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E978026E1B2F2D1800F0C1B6 /* Build configuration list for PBXNativeTarget "Disneyland-ParisTests" */;
-			buildPhases = (
-				E978025D1B2F2D1800F0C1B6 /* Sources */,
-				E978025E1B2F2D1800F0C1B6 /* Frameworks */,
-				E978025F1B2F2D1800F0C1B6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E97802631B2F2D1800F0C1B6 /* PBXTargetDependency */,
-			);
-			name = "Disneyland-ParisTests";
-			productName = "Disneyland-ParisTests";
-			productReference = E97802611B2F2D1800F0C1B6 /* Disneyland-ParisTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		E97802441B2F2D1800F0C1B6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Dean;
 				TargetAttributes = {
 					E978024B1B2F2D1800F0C1B6 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 6EL5V5QVB4;
-					};
-					E97802601B2F2D1800F0C1B6 = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = E978024B1B2F2D1800F0C1B6;
 					};
 				};
 			};
@@ -282,7 +240,6 @@
 			projectRoot = "";
 			targets = (
 				E978024B1B2F2D1800F0C1B6 /* Disneyland-Paris */,
-				E97802601B2F2D1800F0C1B6 /* Disneyland-ParisTests */,
 			);
 		};
 /* End PBXProject section */
@@ -297,13 +254,6 @@
 				E9BFDC141B309B83001809F9 /* Localizable.strings in Resources */,
 				E978025C1B2F2D1800F0C1B6 /* LaunchScreen.xib in Resources */,
 				E97802591B2F2D1800F0C1B6 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E978025F1B2F2D1800F0C1B6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,23 +324,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E978025D1B2F2D1800F0C1B6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E97802681B2F2D1800F0C1B6 /* Disneyland_ParisTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E97802631B2F2D1800F0C1B6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E978024B1B2F2D1800F0C1B6 /* Disneyland-Paris */;
-			targetProxy = E97802621B2F2D1800F0C1B6 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E97802551B2F2D1800F0C1B6 /* Main.storyboard */ = {
@@ -510,10 +444,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Disneyland-Paris/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -523,44 +459,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Disneyland-Paris/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		E978026F1B2F2D1800F0C1B6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Disneyland-ParisTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Disneyland-Paris.app/Disneyland-Paris";
-			};
-			name = Debug;
-		};
-		E97802701B2F2D1800F0C1B6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Disneyland-ParisTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Disneyland-Paris.app/Disneyland-Paris";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -581,15 +485,6 @@
 			buildConfigurations = (
 				E978026C1B2F2D1800F0C1B6 /* Debug */,
 				E978026D1B2F2D1800F0C1B6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E978026E1B2F2D1800F0C1B6 /* Build configuration list for PBXNativeTarget "Disneyland-ParisTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E978026F1B2F2D1800F0C1B6 /* Debug */,
-				E97802701B2F2D1800F0C1B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

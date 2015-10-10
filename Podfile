@@ -6,7 +6,3 @@ target 'Disneyland-Paris' do
     pod 'Alamofire'
     pod 'SwiftyJSON'
 end
-
-target 'Disneyland-ParisTests' do
-
-end

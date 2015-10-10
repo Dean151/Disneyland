@@ -34,7 +34,7 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
         tableView.delegate = self
         
         // Nib for CustomCells
-        var nib =  UINib(nibName: "PoiCell", bundle: nil)
+        let nib =  UINib(nibName: "PoiCell", bundle: nil)
         self.tableView.registerNib(nib, forCellReuseIdentifier: "PoiCell")
         
         self.tableView.contentOffset = CGPointZero;
@@ -53,19 +53,19 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     final func autoRefresh() {
         // AutoRefresh just call manual refresh function, after activating refreshControl
-        println("autorefreshing");
+        print("autorefreshing");
         self.refreshControl.beginRefreshing()
         self.manualRefresh(self)
     }
     
     final func getPoiWithUrl(url: String, completion: () -> Void) {
         DataManager.getUrlWithSuccess(url: url, success: { (attractions, error) -> Void in
-            if let e = error {
+            if let _ = error {
                 self.loadingError()
             } else if let poiList = attractions {
                 let json = JSON(data: poiList)
                 
-                for (index: String, subJson: JSON) in json {
+                for (_, subJson): (String, JSON) in json {
                     if let identifier = subJson["idbio"].string,
                         name = subJson["title"].string,
                         cat = subJson["categorie"].int,
@@ -78,7 +78,7 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
                     }
                 }
                 self.sort(beginEndUpdate: false)
-                println("Success to get pois")
+                print("Success to get pois")
                 completion()
             } else {
                 self.loadingError()
@@ -96,14 +96,14 @@ class PoiViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     // SORT FUNCTIONS
-    func sort(#beginEndUpdate: Bool) {
+    func sort(beginEndUpdate beginEndUpdate: Bool) {
         switch sortType {
         case .byDistance:
-            self.poiIndexes.sort(self.sortByDistance)
+            self.poiIndexes.sortInPlace(self.sortByDistance)
         case .byWaitTimes:
-            self.poiIndexes.sort(self.sortByTimeAndStatus)
+            self.poiIndexes.sortInPlace(self.sortByTimeAndStatus)
         default:
-            self.poiIndexes.sort(self.sortByName)
+            self.poiIndexes.sortInPlace(self.sortByName)
         }
         
         if beginEndUpdate { self.tableView.beginUpdates() }

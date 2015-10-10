@@ -11,7 +11,7 @@ import SwiftyJSON
 
 final class AttractionsViewController: PoiViewController {
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.title = NSLocalizedString("Attractions", comment: "")
@@ -38,12 +38,12 @@ final class AttractionsViewController: PoiViewController {
     
     func getAttractions(completion: () -> Void) {
         DataManager.getUrlWithSuccess(url: attractionsURL, success: { (attractions, error) -> Void in
-            if let e = error {
+            if let _ = error {
                 self.loadingError()
             } else if let attractionsList = attractions {
                 let json = JSON(data: attractionsList)
                 
-                for (index: String, subJson: JSON) in json {
+                for (_, subJson): (String, JSON) in json {
                     if let identifier = subJson["idbio"].string,
                         name = subJson["title"].string,
                         cat = subJson["categorie"].int,
@@ -56,7 +56,7 @@ final class AttractionsViewController: PoiViewController {
                     }
                 }
                 self.sort(beginEndUpdate: false)
-                println("Success to get attractions")
+                print("Success to get attractions")
                 self.getWaitTimes() {
                     completion()
                 }
@@ -68,12 +68,12 @@ final class AttractionsViewController: PoiViewController {
     
     func getWaitTimes(completion: () -> Void) {
         DataManager.getUrlWithSuccess(url: waitTimesURL, success: { (waitTimes, error) -> Void in
-            if let e = error {
+            if let _ = error {
                 self.loadingError()
             } else if let waitTimesList = waitTimes {
                 let json = JSON(data: waitTimesList)
                 
-                for (index: String, subJson: JSON) in json {
+                for (_, subJson): (String, JSON) in json {
                     if let identifier = subJson["idbio"].string,
                         poi = self.poiDict[identifier] as? Attraction,
                         opening = subJson["opening"].string,
@@ -85,7 +85,7 @@ final class AttractionsViewController: PoiViewController {
                     }
                 }
                 self.sort(beginEndUpdate: true)
-                println("Success to get waittimes")
+                print("Success to get waittimes")
                 completion()
             } else {
                 self.loadingError()

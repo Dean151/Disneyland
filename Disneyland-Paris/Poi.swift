@@ -66,7 +66,7 @@ class Poi {
         }
     }
     
-    func searchInString(#string: String, search: String) -> Bool {
+    func searchInString(string string: String, search: String) -> Bool {
         if string.lowercaseString.rangeOfString(search.lowercaseString) != nil {
             return true
         } else {
@@ -88,7 +88,7 @@ class Restaurant: Poi {
     var opening = NSDate()
     var closing = NSDate()
     
-    func update(#open: Int, opening: String, closing: String) {
+    func update(open open: Int, opening: String, closing: String) {
         self.open = open
         self.opening = NSDate(dateString: opening)
         self.closing = NSDate(dateString: closing)
@@ -174,6 +174,6 @@ extension NSDate {
 
 extension String {
     subscript (i: Int) -> Character {
-        return self[advance(self.startIndex, i)]
+        return self[self.startIndex.advancedBy(i)]
     }
 }

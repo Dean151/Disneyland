@@ -10,7 +10,7 @@ import UIKit
 
 final class ShopsViewController: PoiViewController {
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.title = NSLocalizedString("Shops", comment: "")
@@ -21,6 +21,7 @@ final class ShopsViewController: PoiViewController {
     }
     
     override func manualRefresh(sender: AnyObject?) {
+        self.poiIndexes.removeAll()
         self.getPoiWithUrl(shopsURL) {
             self.refreshControl.endRefreshing()
         }

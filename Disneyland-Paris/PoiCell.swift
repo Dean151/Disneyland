@@ -20,7 +20,7 @@ class PoiCell: UITableViewCell {
     @IBOutlet weak var categorieColorBorder: UIView!
     @IBOutlet weak var attractionImage: UIImageView!
     
-    func load(#poi: Poi) {
+    func load(poi poi: Poi) {
         // Default view
         categorieColorBorder.backgroundColor = UIColor.whiteColor()
         categorieColorBorder.layer.cornerRadius = 5
@@ -36,11 +36,11 @@ class PoiCell: UITableViewCell {
         if let image = UIImage(named: poi.id) {
             self.attractionImage.image = image
         } else {
-            println("Image \(poi.id) not found for \(poi.name)")
+            print("Image \(poi.id) not found for \(poi.name)")
         }
     }
     
-    func load(#attraction: Attraction) {
+    func load(attraction attraction: Attraction) {
         load(poi: attraction)
         
         categorieColorBorder.backgroundColor = attraction.categorie.color
@@ -69,7 +69,7 @@ class PoiCell: UITableViewCell {
         }
     }
     
-    func load(#restaurant: Restaurant) {
+    func load(restaurant restaurant: Restaurant) {
         load(poi: restaurant)
         
         if let image = UIImage(named: restaurant.id) {
@@ -102,12 +102,12 @@ extension UIColor {
         var alpha: CGFloat = 1.0
         
         if hexadecimal.hasPrefix("#") {
-            let index   = advance(hexadecimal.startIndex, 1)
+            let index   = hexadecimal.startIndex.advancedBy(1)
             let hex     = hexadecimal.substringFromIndex(index)
             let scanner = NSScanner(string: hex)
             var hexValue: CUnsignedLongLong = 0
             if scanner.scanHexLongLong(&hexValue) {
-                switch (count(hex)) {
+                switch (hex.characters.count) {
                 case 3:
                     red   = CGFloat((hexValue & 0xF00) >> 8)       / 15.0
                     green = CGFloat((hexValue & 0x0F0) >> 4)       / 15.0
@@ -127,13 +127,13 @@ extension UIColor {
                     blue  = CGFloat((hexValue & 0x0000FF00) >> 8)  / 255.0
                     alpha = CGFloat(hexValue & 0x000000FF)         / 255.0
                 default:
-                    print("Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8")
+                    print("Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8", terminator: "")
                 }
             } else {
-                println("Scan hex error")
+                print("Scan hex error")
             }
         } else {
-            print("Invalid RGB string, missing '#' as prefix")
+            print("Invalid RGB string, missing '#' as prefix", terminator: "")
         }
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }

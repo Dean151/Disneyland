@@ -10,7 +10,7 @@ import UIKit
 
 final class SpectaclesViewController: PoiViewController {
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.title = NSLocalizedString("Shows", comment: "")

@@ -22,13 +22,13 @@ let waitTimesURL = "http://api.disneyfan.fr/waittimes"
 let ouvertureURL = "http://api.disneyfan.fr/ouverture"
 
 class DataManager {
-    static func getUrlWithSuccess(#url: String, success: (data: NSData?, error: NSError?) -> Void) {
+    static func getUrlWithSuccess(url url: String, success: (data: NSData?, error: ErrorType?) -> Void) {
         
         Alamofire.request(.GET, url)
             .response { (request, response, data, error) in
                 if let error = error {
                     success(data: nil, error: error)
-                } else if let data = data as? NSData {
+                } else if let data = data {
                     success(data: data, error: nil)
                 }
             }
