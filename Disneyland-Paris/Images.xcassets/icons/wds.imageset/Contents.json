@@ -2,18 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "wds@1.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "wds@2.png"
+      "filename" : "wds@2.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "wds@3.png"
+      "filename" : "wds@3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

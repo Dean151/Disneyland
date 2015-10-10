@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qij-Dc-aNO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qij-Dc-aNO">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--Attractions View Controller-->
@@ -44,7 +45,7 @@
         <scene sceneID="ays-44-opk">
             <objects>
                 <navigationController id="55d-hy-Ku1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Attractions" id="jKE-q3-tyr"/>
+                    <tabBarItem key="tabBarItem" title="Attractions" image="attractionsActive" id="jKE-q3-tyr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zQ4-8f-O6b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -178,6 +179,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="6rI-Kg-uKB">
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
@@ -195,11 +197,12 @@
         <scene sceneID="Qhc-C7-l3f">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="81O-GH-NKp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Restaurants" id="OtT-gP-qNE"/>
+                    <tabBarItem key="tabBarItem" title="Restaurants" image="restaurantsActive" id="OtT-gP-qNE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LUc-bO-ZEi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -214,11 +217,12 @@
         <scene sceneID="4jV-iD-v5p">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oAQ-4m-1yh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shows" id="1wi-TX-5cR"/>
+                    <tabBarItem key="tabBarItem" title="Shows" image="showsActive" id="1wi-TX-5cR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bZT-1z-M8x">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -233,11 +237,12 @@
         <scene sceneID="rz7-bu-pq8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6U6-OJ-By3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shops" id="hCR-dc-Pgw"/>
+                    <tabBarItem key="tabBarItem" title="Shops" image="shopsActive" id="hCR-dc-Pgw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jj7-7m-W1R">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -249,4 +254,10 @@
             <point key="canvasLocation" x="1841" y="2734"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="attractionsActive" width="22" height="22"/>
+        <image name="restaurantsActive" width="22" height="22"/>
+        <image name="shopsActive" width="22" height="22"/>
+        <image name="showsActive" width="22" height="22"/>
+    </resources>
 </document>
