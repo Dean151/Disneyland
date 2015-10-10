@@ -4,5 +4,6 @@ use_frameworks!
 
 target 'Disneyland-Paris' do
     pod 'Alamofire'
+    pod 'HexColors'
     pod 'SwiftyJSON'
 end
